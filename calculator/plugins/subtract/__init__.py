@@ -8,6 +8,8 @@ of two numerical arguments while handling invalid input errors.
 import logging
 from decimal import Decimal, InvalidOperation
 from calculator.commands import Command
+from calculator.plugins.history_manager import HistoryManager  # Added HistoryManager
+
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -31,6 +33,10 @@ class SubtractCommand(Command):
         try:
             a, b = map(Decimal, args)
             difference = a - b
+
+            # Save the operation in history
+            HistoryManager.add_record("Subtraction", str(a), str(b), str(difference))
+
             print(f"The solution of subtraction is {difference}")
             logger.info("Subtraction result: %s", {difference})
         except InvalidOperation:

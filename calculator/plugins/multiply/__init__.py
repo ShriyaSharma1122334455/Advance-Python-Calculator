@@ -8,6 +8,8 @@ of two numerical arguments while handling invalid input errors.
 import logging
 from decimal import Decimal, InvalidOperation
 from calculator.commands import Command
+from calculator.plugins.history_manager import HistoryManager  # Added HistoryManager
+
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -41,6 +43,10 @@ class MultiplyCommand(Command):
         try:
             a, b = map(Decimal, args)
             product = a * b
+
+            # Save the operation in history
+            HistoryManager.add_record("multiplication", str(a), str(b), str(product))
+
             print(f"The solution of multiplication is {product}")
             logger.info("Multiplication successful: %s * %s = %s", a, b, product)
         except InvalidOperation:

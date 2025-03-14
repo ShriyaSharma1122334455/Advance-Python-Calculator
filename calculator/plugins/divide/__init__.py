@@ -9,6 +9,8 @@ division by zero.
 import logging
 from decimal import Decimal, InvalidOperation, DivisionByZero
 from calculator.commands import Command
+from calculator.plugins.history_manager import HistoryManager  # Added HistoryManager
+
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -43,6 +45,11 @@ class DivideCommand(Command):
                 print("Error: Division by zero is not allowed.")
                 return
             quotient = a / b
+
+            # Save the operation in history
+            HistoryManager.add_record("Division", str(a), str(b), str(quotient))
+
+
             logger.info("Division result: %s / %s = %s", a, b, quotient)
             print(f"The solution of division is {quotient}")
         except InvalidOperation:

@@ -47,13 +47,13 @@ class MenuCommand(Command):
         print("\nAvailable Commands:\n" + "-" * 20)
         print("Type the operation along with 2 integers to perform on separated by space")
         
-        # Log the available commands
+        # Log and print the available commands
         for command in sorted(self.command_handler.commands.keys()):
             logger.info("Available command: %s", command)
             print(f" - {command} ")
-        
+
         print("\nType 'quit' to exit.\n")
         logger.info("MenuCommand execution completed.")
-        
+
 # Expose the MenuCommand class for external use
 __all__ = ["MenuCommand"]
