@@ -70,4 +70,3 @@ class CalculationHistory:
         """Prints the calculation history."""
         logger.info("Printing history:")
         print(self.history)
-
