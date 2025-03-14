@@ -12,7 +12,16 @@ import logging.config
 from dotenv import load_dotenv
 from calculator.commands import CommandHandler, Command
 import calculator.plugins  # Import the plugins package
+import logging
+import logging.config
 
+logging.config.fileConfig('logging.conf')
+
+logger = logging.getLogger('calculator')
+
+def setup_logging():
+    logger.info('Logging system initialized')
+    
 class Calculator:
     """
     Calculator class for managing the command-line interface (CLI) calculator.
