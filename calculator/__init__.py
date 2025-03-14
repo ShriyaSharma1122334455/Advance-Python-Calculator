@@ -6,22 +6,15 @@ Supports dynamically loading plugins that extend functionality.
 import os
 import pkgutil
 import importlib
-import inspect
 import logging
 import logging.config
 from dotenv import load_dotenv
 from calculator.commands import CommandHandler, Command
-import calculator.plugins  # Import the plugins package
-import logging
-import logging.config
+from calculator.plugins.logging_utility import LoggingUtility  # Assuming a logging utility module exists
 
-logging.config.fileConfig('logging.conf')
+# Initialize logging at the start of your application
+LoggingUtility.initialize_logging()
 
-logger = logging.getLogger('calculator')
-
-def setup_logging():
-    logger.info('Logging system initialized')
-    
 class Calculator:
     """
     Calculator class for managing the command-line interface (CLI) calculator.
@@ -37,24 +30,29 @@ class Calculator:
         Initializes the Calculator with a CommandHandler instance.
         Loads environment variables and configures logging.
         """
-        self.setup_logging()
+        os.makedirs('logs', exist_ok=True)
+        self.configure_logging()
         load_dotenv()
         self.settings = self.load_environment_variables()
+        self.settings.setdefault('ENVIRONMENT', 'TESTING')
         self.command_handler = CommandHandler()
         self.load_plugins()
 
-    def setup_logging(self):
+    def configure_logging(self):
         """
         Configures logging settings, creating a 'logs' directory if it doesn't exist.
         Loads logging configuration from 'logging.conf' or sets basic logging configuration.
         """
-        os.makedirs('logs', exist_ok=True)
         logging_conf_path = 'logging.conf'
         if os.path.exists(logging_conf_path):
             logging.config.fileConfig(logging_conf_path, disable_existing_loggers=False)
         else:
             logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-        logging.info("Logging initialized.")
+        logging.info("Logging configured.")
+        logging.error("Errors need to be checked")
+        logging.debug("Need to fix")
+        logging.warning("Run tests again")
+        logging.critical("Prioritize these tests")
 
     def load_environment_variables(self):
         """
@@ -63,53 +61,71 @@ class Calculator:
         Returns:
             dict: A dictionary containing environment variables.
         """
-        settings = dict(os.environ.items())  # Replaced the comprehension with the suggested method
+        settings = {key: value for key, value in os.environ.items()}
         logging.info("Environment variables loaded.")
         return settings
+
+    def get_environment_variable(self, env_var: str = 'ENVIRONMENT'):
+        """
+        Retrieves the specified environment variable.
+
+        Args:
+            env_var (str): The name of the environment variable to fetch.
+
+        Returns:
+            str or None: The value of the environment variable, or None if not found.
+        """
+        return self.settings.get(env_var, None)
 
     def load_plugins(self):
         """
         Dynamically loads all plugins from the `calculator.plugins` package and registers commands.
         Logs each plugin load and command registration.
         """
-        all_package = calculator.plugins
-        
-        for _, module_name, _ in pkgutil.iter_modules(
-                all_package.__path__, all_package.__name__ + "."):
-            try:
-                module = importlib.import_module(module_name)
-                logging.info("Loaded plugin module: %s", module_name)  # Changed to lazy formatting
-            except ImportError as e:
-                logging.error("Error loading plugin %s: %s", module_name, e)  # Changed to lazy formatting
-                continue
+        plugins_package = 'calculator.plugins'
+        for _, plugin_name, is_pkg in pkgutil.iter_modules([plugins_package.replace('.', '/')]):
+            if is_pkg:  # Ensure it's a package
+                try:
+                    plugin_module = importlib.import_module(f'{plugins_package}.{plugin_name}')
+                    logging.info(f"Loaded plugin module: {plugin_name}")
+                except ImportError as e:
+                    logging.error(f"Error loading plugin {plugin_name}: {e}")
+                    continue
 
-            for attr_name in dir(module):
-                attr = getattr(module, attr_name)
-                if isinstance(attr, type) and issubclass(attr, Command) and attr is not Command:
-                    try:
-                        init_signature = inspect.signature(attr.__init__)
-                        command_instance = attr(self.command_handler) if "command_handler" in init_signature.parameters else attr()
-                        command_name = getattr(command_instance, 'command_name', module_name.split(".")[-1])
-                        self.command_handler.register_command(command_name, command_instance)
-                        logging.info("Registered command: %s", command_name)  # Changed to lazy formatting
-                    except TypeError as e:
-                        logging.warning("Skipping %s due to error: %s", attr_name, e)  # Changed to lazy formatting
+                for item_name in dir(plugin_module):
+                    item = getattr(plugin_module, item_name)
+                    if isinstance(item, type) and issubclass(item, Command):
+                        try:
+                            # Check if special initialization is required
+                            if hasattr(item, 'requires_command_handler') and item.requires_command_handler:
+                                instance = item(self.command_handler)
+                            else:
+                                instance = item()
+
+                            # Register the command
+                            command_name = getattr(instance, 'command_name', plugin_name)
+                            self.command_handler.register_command(command_name, instance)
+                            logging.info(f"Registered command: {command_name}")
+                        except TypeError:
+                            continue  # Skip if it's not a valid command class
 
     def start(self):
         """
-        Starts the CLI loop for the calculator, accepting user commands until 'quit' is entered.
+        Starts the CLI loop for the calculator, accepting user commands until 'exit' is entered.
         Handles invalid inputs and logs errors.
         """
-        logging.info("Calculator CLI started.")
-        print("Calculator CLI - Type 'quit' to exit OR Menu to Continue")
+        logging.info("Calculator CLI started. Type 'exit' to exit.")
+        print("Menu command provides a list of commands. Type command then number space number to execute command.")
+        print("Type 'exit' to exit.")
+
         while True:
             try:
                 user_input = input(">>> ").strip()
-                if user_input.lower() == "quit":
+                if user_input.lower() == "exit":
                     logging.info("Exiting calculator.")
                     print("Goodbye!")
                     break
-                
+
                 parts = user_input.split(maxsplit=1)
                 command_name = parts[0] if parts else ''
                 args = parts[1].split() if len(parts) > 1 else []
@@ -119,15 +135,15 @@ class Calculator:
                 else:
                     logging.warning("Invalid command entered.")
                     print("Please enter a valid command.")
+
             except KeyboardInterrupt:
                 logging.info("Calculator interrupted by user.")
                 print("\nExiting calculator. Goodbye!")
                 break
-            except ImportError as e:
-                logging.error("Unexpected error: %s", e)  # Changed to lazy formatting
+            except Exception as e:
+                logging.error(f"Unexpected error: {e}")
                 print("An unexpected error occurred. Check logs for details.")
 
 if __name__ == "__main__":
     calculator = Calculator()
     calculator.start()
-    
