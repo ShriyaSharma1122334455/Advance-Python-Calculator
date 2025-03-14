@@ -10,6 +10,7 @@ handling for invalid input and ensures exactly two arguments are provided.
 import logging
 from decimal import Decimal, InvalidOperation
 from calculator.commands import Command
+from calculator.plugins.history_manager import HistoryManager  # Import history manager
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -43,6 +44,10 @@ class AddCommand(Command):
             # Convert arguments to Decimal and perform addition
             a, b = map(Decimal, args)
             result = a + b
+
+            # Save the operation in history
+            HistoryManager.add_record("Addition", str(a), str(b), str(result))
+
             logger.info("Addition result: %s + %s = %s", a, b, result)
             print(f"The Solution of addition is {result}")
         except InvalidOperation:
