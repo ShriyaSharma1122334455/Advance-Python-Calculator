@@ -1,0 +1,61 @@
+2025-03-14 18:22:42 - root - INFO - Logging configured.
+2025-03-14 18:22:42 - root - ERROR - Errors need to be checked
+2025-03-14 18:22:42 - root - WARNING - Run tests again
+2025-03-14 18:22:42 - root - CRITICAL - Prioritize these tests
+2025-03-14 18:22:42 - root - INFO - Environment variables loaded.
+2025-03-14 18:22:42 - root - ERROR - Error loading plugin add: No module named 'calculator.plugins.history_manager'
+2025-03-14 18:22:42 - root - INFO - Loaded plugin module: clear-all
+2025-03-14 18:22:42 - root - ERROR - Error loading plugin delete: No module named 'app'
+2025-03-14 18:22:42 - root - ERROR - Error loading plugin divide: No module named 'calculator.plugins.history_manager'
+2025-03-14 18:22:42 - root - INFO - Loaded plugin module: logging_utility
+2025-03-14 18:22:42 - root - INFO - Loaded plugin module: manage_history
+2025-03-14 18:22:42 - root - INFO - Loaded plugin module: menu
+2025-03-14 18:22:42 - root - ERROR - Error loading plugin multiply: No module named 'calculator.plugins.history_manager'
+2025-03-14 18:22:42 - root - INFO - Loaded plugin module: quit
+2025-03-14 18:22:42 - root - INFO - Registered command: quit
+2025-03-14 18:22:42 - root - ERROR - Error loading plugin subtract: No module named 'calculator.plugins.history_manager'
+2025-03-14 18:22:42 - root - INFO - Loaded plugin module: welcome
+2025-03-14 18:22:42 - root - INFO - Registered command: welcome
+2025-03-14 18:22:42 - root - INFO - Calculator CLI started. Type 'exit' to exit.
+2025-03-14 18:24:50 - root - INFO - Logging configured.
+2025-03-14 18:24:50 - root - ERROR - Errors need to be checked
+2025-03-14 18:24:50 - root - WARNING - Run tests again
+2025-03-14 18:24:50 - root - CRITICAL - Prioritize these tests
+2025-03-14 18:24:50 - root - INFO - Environment variables loaded.
+2025-03-14 18:24:50 - root - ERROR - Error loading plugin add: No module named 'calculator.plugins.history_manager'
+2025-03-14 18:24:50 - root - INFO - Loaded plugin module: clear-all
+2025-03-14 18:24:50 - root - INFO - Registered command: clear-all
+2025-03-14 18:24:50 - root - ERROR - Error loading plugin delete: No module named 'app'
+2025-03-14 18:24:50 - root - ERROR - Error loading plugin divide: No module named 'calculator.plugins.history_manager'
+2025-03-14 18:24:50 - root - INFO - Loaded plugin module: logging_utility
+2025-03-14 18:24:50 - root - INFO - Loaded plugin module: manage_history
+2025-03-14 18:24:50 - root - INFO - Loaded plugin module: menu
+2025-03-14 18:24:50 - root - ERROR - Error loading plugin multiply: No module named 'calculator.plugins.history_manager'
+2025-03-14 18:24:50 - root - INFO - Loaded plugin module: quit
+2025-03-14 18:24:50 - root - INFO - Registered command: quit
+2025-03-14 18:24:50 - root - ERROR - Error loading plugin subtract: No module named 'calculator.plugins.history_manager'
+2025-03-14 18:24:50 - root - INFO - Loaded plugin module: welcome
+2025-03-14 18:24:50 - root - INFO - Registered command: welcome
+2025-03-14 18:24:50 - root - INFO - Calculator CLI started. Type 'exit' to exit.
+2025-03-14 18:26:34 - root - INFO - Calculator interrupted by user.
+2025-03-14 18:26:36 - root - INFO - Logging configured.
+2025-03-14 18:26:36 - root - ERROR - Errors need to be checked
+2025-03-14 18:26:36 - root - WARNING - Run tests again
+2025-03-14 18:26:36 - root - CRITICAL - Prioritize these tests
+2025-03-14 18:26:36 - root - INFO - Environment variables loaded.
+2025-03-14 18:26:36 - root - ERROR - Error loading plugin add: No module named 'calculator.plugins.history_manager'
+2025-03-14 18:26:36 - root - INFO - Loaded plugin module: clear-all
+2025-03-14 18:26:36 - root - INFO - Registered command: clear-all
+2025-03-14 18:26:36 - root - ERROR - Error loading plugin delete: No module named 'app'
+2025-03-14 18:26:36 - root - ERROR - Error loading plugin divide: No module named 'calculator.plugins.history_manager'
+2025-03-14 18:26:36 - root - INFO - Loaded plugin module: logging_utility
+2025-03-14 18:26:36 - root - INFO - Loaded plugin module: manage_history
+2025-03-14 18:26:36 - root - INFO - Loaded plugin module: menu
+2025-03-14 18:26:36 - root - ERROR - Error loading plugin multiply: No module named 'calculator.plugins.history_manager'
+2025-03-14 18:26:36 - root - INFO - Loaded plugin module: quit
+2025-03-14 18:26:36 - root - INFO - Registered command: quit
+2025-03-14 18:26:36 - root - ERROR - Error loading plugin subtract: No module named 'calculator.plugins.history_manager'
+2025-03-14 18:26:36 - root - INFO - Loaded plugin module: welcome
+2025-03-14 18:26:36 - root - INFO - Registered command: welcome
+2025-03-14 18:26:36 - root - INFO - Calculator CLI started. Type 'exit' to exit.
+2025-03-14 18:26:47 - root - INFO - Calculator interrupted by user.

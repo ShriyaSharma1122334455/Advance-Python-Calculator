@@ -6,7 +6,7 @@ commands and a CommandHandler class to register and execute those commands.
 """
 
 from abc import ABC, abstractmethod
-from app.calculation_history import CalculationHistory  # Assuming CalculationHistory is available
+from calculator.plugins.manage_history import CalculationHistory  # Assuming CalculationHistory is available
 
 class Command(ABC):
     """
