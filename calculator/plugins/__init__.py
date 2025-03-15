@@ -5,14 +5,11 @@ This module allows the management of plugins and provides a REPL (Read-Eval-Prin
 for the calculator, where users can input commands to perform various operations.
 """
 
-from .plugin_manager import PluginManager
+from calculator.plugins.add import AddCommand  # Import only what's needed
 from calculator.plugins.subtract import subtract
 from calculator.plugins.multiply import multiply
 from calculator.plugins.divide import divide
-# Make sure this is how you're importing
-from calculator.plugins.add import AddCommand  # Import the class, not a function
-# or if you need both:
-from calculator.plugins.add import AddCommand, add
+from .plugin_manager import PluginManager  # Local import should be after first-party imports
 
 class CalculatorREPL:
     """

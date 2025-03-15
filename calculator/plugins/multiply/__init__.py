@@ -1,4 +1,3 @@
-
 """
 Plugin that provides multiplication functionality to the calculator.
 """
@@ -13,8 +12,19 @@ class MultiplyCommand(Command):
         """Initialize with optional history manager."""
         self.history_manager = history_manager
     
-    def execute(self, args):
-        """Execute the multiply command with the given arguments."""
+    # pylint: disable=unused-argument
+    def execute(self, *args, **kwargs):
+        """
+        Execute the multiply command with the given arguments.
+        
+        Args:
+            *args: List of arguments to multiply
+            **kwargs: Additional keyword arguments (required for interface compatibility)
+            
+        Returns:
+            float: The result of multiplying all numbers.
+            str: Error message if operation fails.
+        """
         try:
             numbers = [float(arg) for arg in args]
             if not numbers:
@@ -30,8 +40,8 @@ class MultiplyCommand(Command):
             
             # Record in history if available
             if self.history_manager:
-                expression = f"{' * '.join(str(n) for n in numbers)} = {result}"
-                self.history_manager.add_record(expression, result)
+                expression = f"{' * '.join(str(n) for n in numbers)}"
+                self.history_manager.add_record("multiplication", expression, result)
                 
             return result
         except ValueError:
@@ -41,6 +51,9 @@ class MultiplyCommand(Command):
             return message
 
 # Export a function called "multiply" that plugins/__init__.py is trying to import
-def multiply(num1, num2):
+def multiply_func(num1, num2):
     """Simple multiply function that multiplies two numbers."""
     return num1 * num2
+
+# Assign to the name that plugins/__init__.py is expecting
+multiply = multiply_func

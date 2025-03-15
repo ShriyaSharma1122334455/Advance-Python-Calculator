@@ -10,6 +10,8 @@ import sys
 from dotenv import load_dotenv
 from calculator.commands import CommandHandler
 from calculator.plugins.logging_utility import LoggingUtility
+from calculator.plugins.add import AddCommand
+from calculator.plugins.manage_history import CalculationHistory
 
 # Initialize logging at the start of your application
 LoggingUtility.initialize_logging()
@@ -32,7 +34,7 @@ class Calculator:
         os.makedirs('logs', exist_ok=True)
         self.configure_logging()
         load_dotenv()
-        self.settings = dict(os.environ)  # Corrected here
+        self.settings = dict(os.environ)
         self.settings.setdefault('ENVIRONMENT', 'TESTING')
         self.command_handler = CommandHandler()
         self.load_plugins()
@@ -56,63 +58,54 @@ class Calculator:
         Returns:
             dict: A dictionary containing environment variables.
         """
-        settings = dict(os.environ)  # Corrected here
+        settings = dict(os.environ)
         logging.info("Environment variables loaded.")
         return settings
-        
+
     def load_plugins(self):
         """
         Loads plugins from the plugins directory.
         Register commands from plugins with the command handler.
         """
         try:
-            from calculator.plugins.add import AddCommand
-            from calculator.plugins.manage_history import CalculationHistory
-            
-            # Register commands from plugins
             calculation_history = CalculationHistory()
             self.command_handler.register_command("add", AddCommand(calculation_history))
-            
-            # Add more commands as needed
-            
             logging.info("Plugins loaded successfully.")
-        except Exception as e:
-            logging.error("Error loading plugins: %s" % str(e))  # Corrected here
-            
+        except ImportError as e:
+            logging.error("Plugin import failed: %s", e)
+        except ValueError as e:
+            logging.error("Error in plugin execution: %s", e)
+
     def start(self):
         """
         Starts the calculator CLI, prompting for user input and executing commands.
         Exits on 'quit' command with exit code 0.
         """
         logging.info("Application started")
-        
-        # Print the welcome message
         print("Calculator CLI - Type 'quit' to exit OR Menu to Continue")
-        
+
         while True:
             user_input = input("> ").strip()
-            
+
             if user_input.lower() == 'quit':
                 print("Goodbye!")
                 sys.exit(0)
-            
-            # Split the input into command name and arguments
+
             parts = user_input.split()
             if not parts:
                 continue
-                
+
             command_name = parts[0].lower()
             args = parts[1:] if len(parts) > 1 else []
-            
-            # Check if the command exists and execute it
+
             if command_name in self.command_handler.commands:
                 try:
                     result = self.command_handler.execute_command(command_name, args)
                     if result:
-                        print("Result: %s" % result)  # Corrected here
-                except Exception as e:
-                    logging.error("Error executing command %s: %s" % (command_name, str(e)))  # Corrected here
-                    print("Error: %s" % str(e))  # Corrected here
+                        print(f"Result: {result}")
+                except ValueError as e:
+                    logging.error("Error executing command %s: %s", command_name, e)
+                    print(f"Error: {e}")
             else:
-                print("No such command: %s" % command_name)  # Corrected here
-                logging.warning("Unknown command attempted: %s" % command_name)  # Corrected here
+                print(f"No such command: {command_name}")
+                logging.warning("Unknown command attempted: %s", command_name)

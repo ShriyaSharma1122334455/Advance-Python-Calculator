@@ -3,7 +3,6 @@ Commands related to calculation history management.
 """
 
 from calculator.commands import Command
-from calculator.plugins.manage_history import CalculationHistory
 
 # Command to add a record
 class AddRecordCommand(Command):
@@ -20,14 +19,20 @@ class AddRecordCommand(Command):
         """
         self.calculation_history = calculation_history
 
-    def execute(self, operation, result):
+    def execute(self, *args):
         """
         Executes the command to add a record to the calculation history.
         
         Args:
-            operation (str): The mathematical operation.
-            result (str): The result of the operation.
+            args (tuple): Expected to contain (operation, result).
+        
+        Returns:
+            str: Confirmation message.
         """
+        if len(args) != 2:
+            return "Invalid arguments. Usage: AddRecordCommand(operation, result)."
+        
+        operation, result = args
         self.calculation_history.add_record(operation, result)
         return "Record added."
 
@@ -46,9 +51,12 @@ class ClearHistoryCommand(Command):
         """
         self.calculation_history = calculation_history
 
-    def execute(self):
+    def execute(self, *args):
         """
         Executes the command to clear the calculation history.
+        
+        Returns:
+            str: Confirmation message.
         """
         self.calculation_history.clear_history()
         return "History cleared."
@@ -68,15 +76,21 @@ class DeleteHistoryCommand(Command):
         """
         self.calculation_history = calculation_history
 
-    def execute(self, index):
+    def execute(self, *args):
         """
         Executes the command to delete a specific history record by its index.
         
         Args:
-            index (int): The index of the history record to delete.
+            args (tuple): Expected to contain (index,).
+        
+        Returns:
+            str: Confirmation message.
         """
+        if len(args) != 1:
+            return "Invalid arguments. Usage: DeleteHistoryCommand(index)."
+
         try:
-            index = int(index)  # Ensure index is an integer
+            index = int(args[0])  # Ensure index is an integer
             success = self.calculation_history.delete_history(index)
             if success:
                 return f"Record at index {index} deleted."
@@ -99,9 +113,12 @@ class LoadHistoryCommand(Command):
         """
         self.calculation_history = calculation_history
 
-    def execute(self):
+    def execute(self, *args):
         """
         Executes the command to load the calculation history.
+        
+        Returns:
+            str: Confirmation message.
         """
         success = self.calculation_history.load_history()
         if success:

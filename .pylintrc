@@ -48,6 +48,6 @@ argument-rgx=[a-z_][a-z0-9_]{1,30}$
 method-rgx=[a-z_][a-z0-9_]{2,50}$
 
 # Module names should have short, all-lowercase names. The use of underscores is discouraged.
-module-rgx=[a-z_][a-z0-9_]{1,30}$
+module-rgx=[a-z_][a-z0-9_-]{1,30}$
 
 # Class names

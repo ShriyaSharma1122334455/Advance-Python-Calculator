@@ -12,7 +12,7 @@ class AddCommand(Command):
         """Initialize with optional history manager."""
         self.history_manager = history_manager
     
-    def execute(self, args):
+    def execute(self, *args):
         """Execute the add command with the given arguments."""
         try:
             numbers = [float(arg) for arg in args]
@@ -32,6 +32,6 @@ class AddCommand(Command):
             return message
 
 # Export a function called "add" that your plugins/__init__.py is trying to import
-def add(a, b):
+def add(num1, num2):
     """Simple add function that adds two numbers."""
-    return a + b
+    return num1 + num2
