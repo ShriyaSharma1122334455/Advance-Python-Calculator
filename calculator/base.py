@@ -1,5 +1,5 @@
 """
-Base classes for the calculator application.
+Initial classes for the calculator application.
 """
 
 from abc import ABC, abstractmethod

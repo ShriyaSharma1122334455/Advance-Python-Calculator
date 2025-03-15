@@ -25,11 +25,15 @@ class CalculationHistory:
         """Ensures only one instance of the CalculationHistory class exists."""
         if cls._instance is None:
             cls._instance = super(CalculationHistory, cls).__new__(cls)
-            cls._instance.initialize()
+            cls._instance.__init__()
         return cls._instance
 
-    def initialize(self):
+    def __init__(self):
         """Initializes the history file path and loads the history data."""
+        # Check if already initialized
+        if hasattr(self, 'history'):
+            return
+            
         load_dotenv()
         self.history_file = os.getenv('HISTORY_FILE_PATH', 'calculation_history.csv')
         self.history_file = os.path.abspath(self.history_file)
@@ -44,10 +48,10 @@ class CalculationHistory:
         """
         if os.path.exists(self.history_file):
             try:
-                logger.info(f"Loading history from {self.history_file}")
+                logger.info("Loading history from %s", self.history_file)
                 return pd.read_csv(self.history_file)
-            except Exception as e:
-                logger.error(f"Failed to load history: {e}")
+            except (FileNotFoundError, pd.errors.EmptyDataError) as e:
+                logger.error("Failed to load history: %s", e)
                 return pd.DataFrame(columns=['Operation', 'Input', 'Result'])
         else:
             logger.info("No existing history found. Initializing empty history.")
@@ -59,8 +63,12 @@ class CalculationHistory:
             os.makedirs(os.path.dirname(self.history_file), exist_ok=True)
             self.history.to_csv(self.history_file, index=False)
             logger.info("History saved successfully.")
-        except Exception as e:
-            logger.error(f"Failed to save history: {e}")
+        except PermissionError as e:
+            logger.error("Failed to save history due to permission error: %s", e)
+        except pd.errors.EmptyDataError as e:
+            logger.error("Failed to save history due to empty data error: %s", e)
+        except IOError as e:
+            logger.error("Failed to save history due to I/O error: %s", e)
 
     def clear_history(self):
         """Clears all records from history and saves an empty file."""
@@ -79,12 +87,12 @@ class CalculationHistory:
             bool: True if the record was successfully deleted, False if the index was invalid.
         """
         if self.history.empty or index < 0 or index >= len(self.history):
-            logger.warning(f"Invalid index: {index}. Cannot delete record.")
+            logger.warning("Invalid index: %d. Cannot delete record.", index)
             return False
-        logger.info(f"Deleting record at index {index}: {self.history.iloc[index]}")
+        logger.info("Deleting record at index %d: %s", index, self.history.iloc[index])
         self.history = self.history.drop(index).reset_index(drop=True)
         self.save_history()
-        logger.info(f"Record {index} deleted. Updated history length: {len(self.history)}")
+        logger.info("Record %d deleted. Updated history length: %d", index, len(self.history))
         return True
 
     def add_record(self, operation, input_str, result):
@@ -96,11 +104,11 @@ class CalculationHistory:
             input_str (str): The input string representing the calculation.
             result (float): The result of the operation.
         """
-        logger.info(f"Adding record: {operation} {input_str} = {result}")
+        logger.info("Adding record: %s %s = %s", operation, input_str, result)
         new_record = pd.DataFrame({'Operation': [operation], 'Input': [input_str], 'Result': [result]})
         self.history = pd.concat([self.history, new_record], ignore_index=True)
         self.save_history()
-        logger.info(f"Record added. Updated history length: {len(self.history)}")
+        logger.info("Record added. Updated history length: %d", len(self.history))
     
     def print_history(self):
         """Prints the calculation history."""

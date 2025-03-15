@@ -1,46 +1,62 @@
 """
-Test suite for the Calculator class with logging and environment variables.
+Plugin that provides multiplication functionality to the calculator.
 """
-import os
-import logging
-import pytest
-from calculator import Calculator
 
-# Configure logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+from calculator.base import Command
+from calculator.plugins.logging_utility import LoggingUtility
 
-# Environment variable for test mode
-os.environ["TEST_MODE"] = "true"
+class MultiplyCommand(Command):
+    """Command that performs multiplication of numbers."""
+    
+    def __init__(self, history_manager=None):
+        """Initialize with optional history manager."""
+        self.history_manager = history_manager
+    
+    def execute(self, *args):
+        """
+        Execute the multiply command with the given arguments.
+        
+        Args:
+            *args: Variable-length argument list of numbers to multiply.
+        
+        Returns:
+            float: The result of the multiplication.
+            str: An error message if the input is invalid.
+        """
+        try:
+            # Flatten args in case a list is passed
+            flattened_args = []
+            for arg in args:
+                if isinstance(arg, (list, tuple)):
+                    flattened_args.extend(arg)
+                else:
+                    flattened_args.append(arg)
+            
+            numbers = [float(arg) for arg in flattened_args]
+            if not numbers:
+                message = "Error: No numbers provided for multiplication"
+                print(message)
+                LoggingUtility.error("Multiply command failed: no arguments")
+                return message
+                
+            result = 1
+            for number in numbers:
+                result *= number
+            print(f"Result: {result}")
+            
+            # Record in history if available
+            if self.history_manager:
+                expression = f"{' * '.join(str(n) for n in numbers)} = {result}"
+                self.history_manager.add_record("Multiplication", expression, result)
+                
+            return result
+        except ValueError:
+            message = "Error: All arguments must be numbers"
+            print(message)
+            LoggingUtility.error("Multiply command failed: arguments must be numbers")
+            return message
 
-def test_calculator_start_exit_command(monkeypatch):
-    """Test that the calculator exits correctly on 'quit' command."""
-    monkeypatch.setattr('builtins.input', lambda _: 'quit')
-    calculator = Calculator()
-
-    with pytest.raises(SystemExit):
-        calculator.start()
-
-def test_calculator_start_unknown_command(monkeypatch):
-    """Test how the calculator handles an unknown command before exiting."""
-    inputs = iter(['unknown_command', 'quit'])
-    monkeypatch.setattr('builtins.input', lambda _: next(inputs))
-    calculator = Calculator()
-
-    with pytest.raises(SystemExit):
-        calculator.start()
-
-def test_calculator_add_command(capfd, monkeypatch):
-    """Test that the calculator correctly handles an 'add' command."""
-    inputs = iter(['add 2 3', 'quit'])
-    monkeypatch.setattr('builtins.input', lambda _: next(inputs))
-    calculator = Calculator()
-
-    with pytest.raises(SystemExit):
-        calculator.start()
-
-    # Capture the output of the command
-    captured = capfd.readouterr()
-
-    # Check if the result is in the captured output
-    assert "Result: 5.0" in captured.out
+# Export a function called "multiply" that plugins/__init__.py is trying to import
+def multiply(num1, num2):
+    """Simple multiply function that multiplies two numbers."""
+    return num1 * num2

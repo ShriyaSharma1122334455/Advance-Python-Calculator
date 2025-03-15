@@ -1,8 +1,3 @@
-import os
-import logging
-from logging.handlers import RotatingFileHandler
-
-# Module-level docstring
 """
 This module provides logging utilities for the application.
 
@@ -12,6 +7,10 @@ It also handles logging to both a rotating log file and the console, with
 different log levels for each.
 """
 
+import os
+import logging
+from logging.handlers import RotatingFileHandler
+
 class LoggingUtility:
     """
     A utility class for managing logging within the application.
@@ -20,7 +19,7 @@ class LoggingUtility:
     of a rotating log file and console logging. It provides static methods for 
     logging messages at different levels: info, warning, error, debug, and critical.
     """
-    
+
     @staticmethod
     def initialize_logging():
         """
@@ -34,7 +33,6 @@ class LoggingUtility:
         Logging will only be initialized if the `TEST_MODE` environment variable 
         is not set to "true".
         """
-        # Only initialize logging if it's not in TEST_MODE
         if os.getenv("TEST_MODE") != "true":
             log_directory = "logs"
             log_filename = "application.log"
@@ -44,7 +42,6 @@ class LoggingUtility:
             os.makedirs(log_directory, exist_ok=True)
             log_file_path = os.path.join(log_directory, log_filename)
 
-            # Create a rotating file handler
             rotating_file_handler = RotatingFileHandler(
                 log_file_path, maxBytes=max_log_size, backupCount=backup_count
             )
