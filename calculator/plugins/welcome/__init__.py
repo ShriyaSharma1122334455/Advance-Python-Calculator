@@ -20,7 +20,7 @@ class WelcomeCommand(Command):
     to display a welcome message when executed.
     """
 
-    def execute(self):
+    def execute(self, *args):
         """
         Executes the welcome command.
 

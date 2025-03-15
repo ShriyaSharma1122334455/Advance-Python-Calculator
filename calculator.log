@@ -59,3 +59,609 @@
 2025-03-14 18:26:36 - root - INFO - Registered command: welcome
 2025-03-14 18:26:36 - root - INFO - Calculator CLI started. Type 'exit' to exit.
 2025-03-14 18:26:47 - root - INFO - Calculator interrupted by user.
+2025-03-14 19:07:07 - root - INFO - Logging configured.
+2025-03-14 19:07:07 - root - ERROR - Errors need to be checked
+2025-03-14 19:07:07 - root - WARNING - Run tests again
+2025-03-14 19:07:07 - root - CRITICAL - Prioritize these tests
+2025-03-14 19:07:07 - root - INFO - Environment variables loaded.
+2025-03-14 19:07:07 - root - ERROR - Error loading plugin add: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:07:07 - root - INFO - Loaded plugin module: clear-all
+2025-03-14 19:07:07 - root - INFO - Registered command: clear-all
+2025-03-14 19:07:07 - root - ERROR - Error loading plugin delete: No module named 'app'
+2025-03-14 19:07:07 - root - ERROR - Error loading plugin divide: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:07:07 - root - INFO - Loaded plugin module: logging_utility
+2025-03-14 19:07:07 - root - INFO - Loaded plugin module: manage_history
+2025-03-14 19:07:07 - root - INFO - Loaded plugin module: menu
+2025-03-14 19:07:07 - root - ERROR - Error loading plugin multiply: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:07:07 - root - INFO - Loaded plugin module: quit
+2025-03-14 19:07:07 - root - INFO - Registered command: quit
+2025-03-14 19:07:07 - root - ERROR - Error loading plugin subtract: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:07:07 - root - INFO - Loaded plugin module: welcome
+2025-03-14 19:07:07 - root - INFO - Registered command: welcome
+2025-03-14 19:07:07 - root - INFO - Calculator CLI started. Type 'exit' to exit.
+2025-03-14 19:08:52 - root - INFO - Calculator interrupted by user.
+2025-03-14 19:09:03 - root - INFO - Logging configured.
+2025-03-14 19:09:03 - root - ERROR - Errors need to be checked
+2025-03-14 19:09:03 - root - WARNING - Run tests again
+2025-03-14 19:09:03 - root - CRITICAL - Prioritize these tests
+2025-03-14 19:09:03 - root - INFO - Environment variables loaded.
+2025-03-14 19:09:03 - root - ERROR - Error loading plugin add: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:09:03 - root - INFO - Loaded plugin module: clear-all
+2025-03-14 19:09:03 - root - INFO - Registered command: clear-all
+2025-03-14 19:09:03 - root - ERROR - Error loading plugin delete: No module named 'app'
+2025-03-14 19:09:03 - root - ERROR - Error loading plugin divide: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:09:03 - root - INFO - Loaded plugin module: logging_utility
+2025-03-14 19:09:03 - root - INFO - Loaded plugin module: manage_history
+2025-03-14 19:09:03 - root - INFO - Loaded plugin module: menu
+2025-03-14 19:09:03 - root - ERROR - Error loading plugin multiply: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:09:03 - root - INFO - Loaded plugin module: quit
+2025-03-14 19:09:03 - root - INFO - Registered command: quit
+2025-03-14 19:09:03 - root - ERROR - Error loading plugin subtract: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:09:03 - root - INFO - Loaded plugin module: welcome
+2025-03-14 19:09:03 - root - INFO - Registered command: welcome
+2025-03-14 19:09:03 - test.test_calculator - INFO - Starting calculator with 'quit' command
+2025-03-14 19:09:03 - root - INFO - Calculator CLI started. Type 'exit' to exit.
+2025-03-14 19:09:03 - calculator.plugins.quit - INFO - QuitCommand executed. Exiting the program.
+2025-03-14 19:09:03 - calculator.plugins.quit - INFO - QuitCommand executed. Exiting the program.
+2025-03-14 19:09:03 - root - INFO - Logging configured.
+2025-03-14 19:09:03 - root - ERROR - Errors need to be checked
+2025-03-14 19:09:03 - root - WARNING - Run tests again
+2025-03-14 19:09:03 - root - CRITICAL - Prioritize these tests
+2025-03-14 19:09:03 - root - INFO - Environment variables loaded.
+2025-03-14 19:09:03 - root - ERROR - Error loading plugin add: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:09:03 - root - INFO - Loaded plugin module: clear-all
+2025-03-14 19:09:03 - root - INFO - Registered command: clear-all
+2025-03-14 19:09:03 - root - ERROR - Error loading plugin delete: No module named 'app'
+2025-03-14 19:09:03 - root - ERROR - Error loading plugin divide: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:09:03 - root - INFO - Loaded plugin module: logging_utility
+2025-03-14 19:09:03 - root - INFO - Loaded plugin module: manage_history
+2025-03-14 19:09:03 - root - INFO - Loaded plugin module: menu
+2025-03-14 19:09:03 - root - ERROR - Error loading plugin multiply: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:09:03 - root - INFO - Loaded plugin module: quit
+2025-03-14 19:09:03 - root - INFO - Registered command: quit
+2025-03-14 19:09:03 - root - ERROR - Error loading plugin subtract: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:09:03 - root - INFO - Loaded plugin module: welcome
+2025-03-14 19:09:03 - root - INFO - Registered command: welcome
+2025-03-14 19:09:03 - test.test_calculator - INFO - Starting calculator with an unknown command followed by 'quit'.
+2025-03-14 19:09:03 - root - INFO - Calculator CLI started. Type 'exit' to exit.
+2025-03-14 19:09:03 - calculator.plugins.quit - INFO - QuitCommand executed. Exiting the program.
+2025-03-14 19:09:03 - calculator.plugins.quit - INFO - QuitCommand executed. Exiting the program.
+2025-03-14 19:09:03 - root - INFO - Logging configured.
+2025-03-14 19:09:03 - root - ERROR - Errors need to be checked
+2025-03-14 19:09:03 - root - WARNING - Run tests again
+2025-03-14 19:09:03 - root - CRITICAL - Prioritize these tests
+2025-03-14 19:09:03 - root - INFO - Environment variables loaded.
+2025-03-14 19:09:03 - root - ERROR - Error loading plugin add: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:09:03 - root - INFO - Loaded plugin module: clear-all
+2025-03-14 19:09:03 - root - INFO - Registered command: clear-all
+2025-03-14 19:09:03 - root - ERROR - Error loading plugin delete: No module named 'app'
+2025-03-14 19:09:03 - root - ERROR - Error loading plugin divide: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:09:03 - root - INFO - Loaded plugin module: logging_utility
+2025-03-14 19:09:03 - root - INFO - Loaded plugin module: manage_history
+2025-03-14 19:09:03 - root - INFO - Loaded plugin module: menu
+2025-03-14 19:09:03 - root - ERROR - Error loading plugin multiply: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:09:03 - root - INFO - Loaded plugin module: quit
+2025-03-14 19:09:03 - root - INFO - Registered command: quit
+2025-03-14 19:09:03 - root - ERROR - Error loading plugin subtract: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:09:03 - root - INFO - Loaded plugin module: welcome
+2025-03-14 19:09:03 - root - INFO - Registered command: welcome
+2025-03-14 19:09:03 - test.test_commands - INFO - Starting calculator with 'quit' command
+2025-03-14 19:09:03 - root - INFO - Calculator CLI started. Type 'exit' to exit.
+2025-03-14 19:09:03 - calculator.plugins.quit - INFO - QuitCommand executed. Exiting the program.
+2025-03-14 19:09:03 - calculator.plugins.quit - INFO - QuitCommand executed. Exiting the program.
+2025-03-14 19:09:03 - root - INFO - Logging configured.
+2025-03-14 19:09:03 - root - ERROR - Errors need to be checked
+2025-03-14 19:09:03 - root - WARNING - Run tests again
+2025-03-14 19:09:03 - root - CRITICAL - Prioritize these tests
+2025-03-14 19:09:03 - root - INFO - Environment variables loaded.
+2025-03-14 19:09:03 - root - ERROR - Error loading plugin add: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:09:03 - root - INFO - Loaded plugin module: clear-all
+2025-03-14 19:09:03 - root - INFO - Registered command: clear-all
+2025-03-14 19:09:03 - root - ERROR - Error loading plugin delete: No module named 'app'
+2025-03-14 19:09:03 - root - ERROR - Error loading plugin divide: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:09:03 - root - INFO - Loaded plugin module: logging_utility
+2025-03-14 19:09:03 - root - INFO - Loaded plugin module: manage_history
+2025-03-14 19:09:03 - root - INFO - Loaded plugin module: menu
+2025-03-14 19:09:03 - root - ERROR - Error loading plugin multiply: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:09:03 - root - INFO - Loaded plugin module: quit
+2025-03-14 19:09:03 - root - INFO - Registered command: quit
+2025-03-14 19:09:03 - root - ERROR - Error loading plugin subtract: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:09:03 - root - INFO - Loaded plugin module: welcome
+2025-03-14 19:09:03 - root - INFO - Registered command: welcome
+2025-03-14 19:09:03 - test.test_commands - INFO - Starting calculator with an unknown command followed by 'quit'.
+2025-03-14 19:09:03 - root - INFO - Calculator CLI started. Type 'exit' to exit.
+2025-03-14 19:09:03 - calculator.plugins.quit - INFO - QuitCommand executed. Exiting the program.
+2025-03-14 19:09:03 - calculator.plugins.quit - INFO - QuitCommand executed. Exiting the program.
+2025-03-14 19:09:03 - root - INFO - Logging configured.
+2025-03-14 19:09:03 - root - ERROR - Errors need to be checked
+2025-03-14 19:09:03 - root - WARNING - Run tests again
+2025-03-14 19:09:03 - root - CRITICAL - Prioritize these tests
+2025-03-14 19:09:03 - root - INFO - Environment variables loaded.
+2025-03-14 19:09:03 - root - ERROR - Error loading plugin add: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:09:03 - root - INFO - Loaded plugin module: clear-all
+2025-03-14 19:09:03 - root - INFO - Registered command: clear-all
+2025-03-14 19:09:03 - root - ERROR - Error loading plugin delete: No module named 'app'
+2025-03-14 19:09:03 - root - ERROR - Error loading plugin divide: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:09:03 - root - INFO - Loaded plugin module: logging_utility
+2025-03-14 19:09:03 - root - INFO - Loaded plugin module: manage_history
+2025-03-14 19:09:03 - root - INFO - Loaded plugin module: menu
+2025-03-14 19:09:03 - root - ERROR - Error loading plugin multiply: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:09:03 - root - INFO - Loaded plugin module: quit
+2025-03-14 19:09:03 - root - INFO - Registered command: quit
+2025-03-14 19:09:03 - root - ERROR - Error loading plugin subtract: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:09:03 - root - INFO - Loaded plugin module: welcome
+2025-03-14 19:09:03 - root - INFO - Registered command: welcome
+2025-03-14 19:09:03 - root - INFO - Calculator CLI started. Type 'exit' to exit.
+2025-03-14 19:09:03 - calculator.plugins.quit - INFO - QuitCommand executed. Exiting the program.
+2025-03-14 19:09:03 - calculator.plugins.quit - INFO - QuitCommand executed. Exiting the program.
+2025-03-14 19:14:02 - root - INFO - Logging configured.
+2025-03-14 19:14:02 - root - ERROR - Errors need to be checked
+2025-03-14 19:14:02 - root - WARNING - Run tests again
+2025-03-14 19:14:02 - root - CRITICAL - Prioritize these tests
+2025-03-14 19:14:02 - root - INFO - Environment variables loaded.
+2025-03-14 19:14:02 - root - ERROR - Error loading plugin add: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:14:02 - root - INFO - Loaded plugin module: clear-all
+2025-03-14 19:14:02 - root - INFO - Registered command: clear-all
+2025-03-14 19:14:02 - root - ERROR - Error loading plugin delete: No module named 'app'
+2025-03-14 19:14:02 - root - ERROR - Error loading plugin divide: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:14:02 - root - INFO - Loaded plugin module: logging_utility
+2025-03-14 19:14:02 - root - INFO - Loaded plugin module: manage_history
+2025-03-14 19:14:02 - root - INFO - Loaded plugin module: menu
+2025-03-14 19:14:02 - root - ERROR - Error loading plugin multiply: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:14:24 - root - INFO - Logging configured.
+2025-03-14 19:14:24 - root - ERROR - Errors need to be checked
+2025-03-14 19:14:24 - root - WARNING - Run tests again
+2025-03-14 19:14:24 - root - CRITICAL - Prioritize these tests
+2025-03-14 19:14:24 - root - INFO - Environment variables loaded.
+2025-03-14 19:14:24 - root - ERROR - Error loading plugin add: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:14:24 - root - INFO - Loaded plugin module: clear-all
+2025-03-14 19:14:24 - root - INFO - Registered command: clear-all
+2025-03-14 19:14:24 - root - ERROR - Error loading plugin delete: No module named 'app'
+2025-03-14 19:14:24 - root - ERROR - Error loading plugin divide: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:14:24 - root - INFO - Loaded plugin module: logging_utility
+2025-03-14 19:14:24 - root - INFO - Loaded plugin module: manage_history
+2025-03-14 19:14:24 - root - INFO - Loaded plugin module: menu
+2025-03-14 19:14:24 - root - ERROR - Error loading plugin multiply: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:14:24 - root - INFO - Loaded plugin module: quit
+2025-03-14 19:14:24 - root - INFO - Registered command: quit
+2025-03-14 19:14:24 - root - ERROR - Error loading plugin subtract: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:14:24 - root - INFO - Loaded plugin module: welcome
+2025-03-14 19:14:24 - root - INFO - Registered command: welcome
+2025-03-14 19:14:24 - root - INFO - Calculator CLI started. Type 'exit' to exit.
+2025-03-14 19:15:31 - root - INFO - Calculator interrupted by user.
+2025-03-14 19:15:33 - root - INFO - Logging configured.
+2025-03-14 19:15:33 - root - ERROR - Errors need to be checked
+2025-03-14 19:15:33 - root - WARNING - Run tests again
+2025-03-14 19:15:33 - root - CRITICAL - Prioritize these tests
+2025-03-14 19:15:33 - root - INFO - Environment variables loaded.
+2025-03-14 19:15:33 - root - ERROR - Error loading plugin add: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:15:33 - root - INFO - Loaded plugin module: clear_all
+2025-03-14 19:15:33 - root - INFO - Registered command: clear_all
+2025-03-14 19:15:33 - root - ERROR - Error loading plugin delete: No module named 'app'
+2025-03-14 19:15:33 - root - ERROR - Error loading plugin divide: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:15:33 - root - INFO - Loaded plugin module: logging_utility
+2025-03-14 19:15:33 - root - INFO - Loaded plugin module: manage_history
+2025-03-14 19:15:33 - root - INFO - Loaded plugin module: menu
+2025-03-14 19:15:33 - root - ERROR - Error loading plugin multiply: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:15:33 - root - INFO - Loaded plugin module: quit
+2025-03-14 19:15:33 - root - INFO - Registered command: quit
+2025-03-14 19:15:33 - root - ERROR - Error loading plugin subtract: No module named 'calculator.plugins.history_manager'
+2025-03-14 19:15:33 - root - INFO - Loaded plugin module: welcome
+2025-03-14 19:15:33 - root - INFO - Registered command: welcome
+2025-03-14 19:15:33 - root - INFO - Calculator CLI started. Type 'exit' to exit.
+2025-03-14 19:17:58 - root - INFO - Calculator interrupted by user.
+2025-03-14 19:18:41 - root - INFO - Logging configured.
+2025-03-14 19:18:41 - root - ERROR - Errors need to be checked
+2025-03-14 19:18:41 - root - WARNING - Run tests again
+2025-03-14 19:18:41 - root - CRITICAL - Prioritize these tests
+2025-03-14 19:18:41 - root - INFO - Environment variables loaded.
+2025-03-14 19:18:41 - root - ERROR - Error loading plugin add: cannot import name 'HistoryManager' from 'calculator.plugins.manage_history' (/home/sshriya/projects/Midterm/calculator/plugins/manage_history/__init__.py)
+2025-03-14 19:18:41 - root - INFO - Loaded plugin module: clear_all
+2025-03-14 19:18:41 - root - INFO - Registered command: clear_all
+2025-03-14 19:18:41 - root - INFO - Loaded plugin module: delete
+2025-03-14 19:18:41 - root - INFO - Registered command: delete
+2025-03-14 19:18:41 - root - ERROR - Error loading plugin divide: cannot import name 'HistoryManager' from 'calculator.plugins.manage_history' (/home/sshriya/projects/Midterm/calculator/plugins/manage_history/__init__.py)
+2025-03-14 19:18:41 - root - INFO - Loaded plugin module: logging_utility
+2025-03-14 19:18:41 - root - INFO - Loaded plugin module: manage_history
+2025-03-14 19:18:41 - root - INFO - Loaded plugin module: menu
+2025-03-14 19:18:41 - root - ERROR - Error loading plugin multiply: cannot import name 'HistoryManager' from 'calculator.plugins.manage_history' (/home/sshriya/projects/Midterm/calculator/plugins/manage_history/__init__.py)
+2025-03-14 19:18:41 - root - INFO - Loaded plugin module: quit
+2025-03-14 19:18:41 - root - INFO - Registered command: quit
+2025-03-14 19:18:41 - root - ERROR - Error loading plugin subtract: cannot import name 'HistoryManager' from 'calculator.plugins.manage_history' (/home/sshriya/projects/Midterm/calculator/plugins/manage_history/__init__.py)
+2025-03-14 19:18:41 - root - INFO - Loaded plugin module: welcome
+2025-03-14 19:18:41 - root - INFO - Registered command: welcome
+2025-03-14 19:18:41 - root - INFO - Calculator CLI started. Type 'exit' to exit.
+2025-03-14 19:19:44 - root - INFO - Calculator interrupted by user.
+2025-03-14 19:20:12 - root - INFO - Logging configured.
+2025-03-14 19:20:12 - root - ERROR - Errors need to be checked
+2025-03-14 19:20:12 - root - WARNING - Run tests again
+2025-03-14 19:20:12 - root - CRITICAL - Prioritize these tests
+2025-03-14 19:20:12 - root - INFO - Environment variables loaded.
+2025-03-14 19:20:12 - root - ERROR - Error loading plugin add: cannot import name 'HistoryManager' from 'calculator.plugins.manage_history' (/home/sshriya/projects/Midterm/calculator/plugins/manage_history/__init__.py)
+2025-03-14 19:20:12 - root - INFO - Loaded plugin module: clear_all
+2025-03-14 19:20:12 - root - INFO - Registered command: clear_all
+2025-03-14 19:20:12 - root - INFO - Loaded plugin module: delete
+2025-03-14 19:20:12 - root - INFO - Registered command: delete
+2025-03-14 19:20:12 - root - ERROR - Error loading plugin divide: cannot import name 'HistoryManager' from 'calculator.plugins.manage_history' (/home/sshriya/projects/Midterm/calculator/plugins/manage_history/__init__.py)
+2025-03-14 19:20:12 - root - INFO - Loaded plugin module: logging_utility
+2025-03-14 19:20:12 - root - INFO - Loaded plugin module: manage_history
+2025-03-14 19:20:12 - root - INFO - Loaded plugin module: menu
+2025-03-14 19:20:12 - root - ERROR - Error loading plugin multiply: cannot import name 'HistoryManager' from 'calculator.plugins.manage_history' (/home/sshriya/projects/Midterm/calculator/plugins/manage_history/__init__.py)
+2025-03-14 19:20:12 - root - INFO - Loaded plugin module: quit
+2025-03-14 19:20:12 - root - INFO - Registered command: quit
+2025-03-14 19:20:12 - root - ERROR - Error loading plugin subtract: cannot import name 'HistoryManager' from 'calculator.plugins.manage_history' (/home/sshriya/projects/Midterm/calculator/plugins/manage_history/__init__.py)
+2025-03-14 19:20:12 - root - INFO - Loaded plugin module: welcome
+2025-03-14 19:20:12 - root - INFO - Registered command: welcome
+2025-03-14 19:20:12 - root - INFO - Calculator CLI started. Type 'exit' to exit.
+2025-03-14 19:23:01 - root - INFO - Calculator interrupted by user.
+2025-03-14 19:23:03 - root - INFO - Logging configured.
+2025-03-14 19:23:03 - root - ERROR - Errors need to be checked
+2025-03-14 19:23:03 - root - WARNING - Run tests again
+2025-03-14 19:23:03 - root - CRITICAL - Prioritize these tests
+2025-03-14 19:23:03 - root - INFO - Environment variables loaded.
+2025-03-14 19:23:03 - root - INFO - Loaded plugin module: add
+2025-03-14 19:23:03 - root - INFO - Registered command: add
+2025-03-14 19:23:03 - root - INFO - Loaded plugin module: clear_all
+2025-03-14 19:23:03 - root - INFO - Registered command: clear_all
+2025-03-14 19:23:03 - root - INFO - Loaded plugin module: delete
+2025-03-14 19:23:03 - root - INFO - Registered command: delete
+2025-03-14 19:23:03 - root - INFO - Loaded plugin module: divide
+2025-03-14 19:23:03 - root - INFO - Registered command: divide
+2025-03-14 19:23:03 - root - INFO - Loaded plugin module: logging_utility
+2025-03-14 19:23:03 - root - INFO - Loaded plugin module: manage_history
+2025-03-14 19:23:03 - root - INFO - Loaded plugin module: menu
+2025-03-14 19:23:03 - root - INFO - Loaded plugin module: multiply
+2025-03-14 19:23:03 - root - INFO - Registered command: multiply
+2025-03-14 19:23:03 - root - INFO - Loaded plugin module: quit
+2025-03-14 19:23:03 - root - INFO - Registered command: quit
+2025-03-14 19:23:03 - root - INFO - Loaded plugin module: subtract
+2025-03-14 19:23:03 - root - INFO - Registered command: subtract
+2025-03-14 19:23:03 - root - INFO - Loaded plugin module: welcome
+2025-03-14 19:23:03 - root - INFO - Registered command: welcome
+2025-03-14 19:23:03 - root - INFO - Calculator CLI started. Type 'exit' to exit.
+2025-03-14 19:25:56 - root - INFO - Calculator interrupted by user.
+2025-03-14 19:25:58 - root - INFO - Logging configured.
+2025-03-14 19:25:58 - root - ERROR - Errors need to be checked
+2025-03-14 19:25:58 - root - WARNING - Run tests again
+2025-03-14 19:25:58 - root - CRITICAL - Prioritize these tests
+2025-03-14 19:25:58 - root - INFO - Environment variables loaded.
+2025-03-14 19:25:58 - root - INFO - Loaded plugin module: add
+2025-03-14 19:25:58 - root - INFO - Registered command: add
+2025-03-14 19:25:58 - root - INFO - Loaded plugin module: clear_all
+2025-03-14 19:25:58 - root - INFO - Registered command: clear_all
+2025-03-14 19:25:58 - root - INFO - Loaded plugin module: delete
+2025-03-14 19:25:58 - root - INFO - Registered command: delete
+2025-03-14 19:25:58 - root - INFO - Loaded plugin module: divide
+2025-03-14 19:25:58 - root - INFO - Registered command: divide
+2025-03-14 19:25:58 - root - INFO - Loaded plugin module: logging_utility
+2025-03-14 19:25:58 - root - INFO - Loaded plugin module: manage_history
+2025-03-14 19:25:58 - root - INFO - Loaded plugin module: menu
+2025-03-14 19:25:58 - root - INFO - Loaded plugin module: multiply
+2025-03-14 19:25:58 - root - INFO - Registered command: multiply
+2025-03-14 19:25:58 - root - INFO - Loaded plugin module: quit
+2025-03-14 19:25:58 - root - INFO - Registered command: quit
+2025-03-14 19:25:58 - root - INFO - Loaded plugin module: subtract
+2025-03-14 19:25:58 - root - INFO - Registered command: subtract
+2025-03-14 19:25:58 - root - INFO - Loaded plugin module: welcome
+2025-03-14 19:25:58 - root - INFO - Registered command: welcome
+2025-03-14 19:25:58 - root - INFO - Calculator CLI started. Type 'exit' to exit.
+2025-03-14 19:26:49 - root - INFO - Calculator interrupted by user.
+2025-03-14 19:26:53 - root - INFO - Logging configured.
+2025-03-14 19:26:53 - root - ERROR - Errors need to be checked
+2025-03-14 19:26:53 - root - WARNING - Run tests again
+2025-03-14 19:26:53 - root - CRITICAL - Prioritize these tests
+2025-03-14 19:26:53 - root - INFO - Environment variables loaded.
+2025-03-14 19:26:53 - root - INFO - Loaded plugin module: add
+2025-03-14 19:26:53 - root - INFO - Registered command: add
+2025-03-14 19:26:53 - root - INFO - Loaded plugin module: clear_all
+2025-03-14 19:26:53 - root - INFO - Registered command: clear_all
+2025-03-14 19:26:53 - root - INFO - Loaded plugin module: delete
+2025-03-14 19:26:53 - root - INFO - Registered command: delete
+2025-03-14 19:26:53 - root - INFO - Loaded plugin module: divide
+2025-03-14 19:26:53 - root - INFO - Registered command: divide
+2025-03-14 19:26:53 - root - INFO - Loaded plugin module: logging_utility
+2025-03-14 19:26:53 - root - INFO - Loaded plugin module: manage_history
+2025-03-14 19:26:53 - root - INFO - Loaded plugin module: menu
+2025-03-14 19:26:53 - root - INFO - Loaded plugin module: multiply
+2025-03-14 19:26:53 - root - INFO - Registered command: multiply
+2025-03-14 19:29:03 - root - INFO - Logging configured.
+2025-03-14 19:29:03 - root - ERROR - Errors need to be checked
+2025-03-14 19:29:03 - root - WARNING - Run tests again
+2025-03-14 19:29:03 - root - CRITICAL - Prioritize these tests
+2025-03-14 19:29:03 - root - INFO - Environment variables loaded.
+2025-03-14 19:29:03 - root - INFO - Loaded plugin module: add
+2025-03-14 19:29:03 - root - INFO - Registered command: add
+2025-03-14 19:29:03 - root - INFO - Loaded plugin module: clear_all
+2025-03-14 19:29:03 - root - INFO - Registered command: clear_all
+2025-03-14 19:29:03 - root - INFO - Loaded plugin module: delete
+2025-03-14 19:29:03 - root - INFO - Registered command: delete
+2025-03-14 19:29:03 - root - INFO - Loaded plugin module: divide
+2025-03-14 19:29:03 - root - INFO - Registered command: divide
+2025-03-14 19:29:03 - root - INFO - Loaded plugin module: logging_utility
+2025-03-14 19:29:03 - root - INFO - Loaded plugin module: manage_history
+2025-03-14 19:29:03 - root - INFO - Loaded plugin module: menu
+2025-03-14 19:29:03 - root - INFO - Loaded plugin module: multiply
+2025-03-14 19:29:03 - root - INFO - Registered command: multiply
+2025-03-14 19:29:18 - root - INFO - Logging configured.
+2025-03-14 19:29:18 - root - ERROR - Errors need to be checked
+2025-03-14 19:29:18 - root - WARNING - Run tests again
+2025-03-14 19:29:18 - root - CRITICAL - Prioritize these tests
+2025-03-14 19:29:18 - root - INFO - Environment variables loaded.
+2025-03-14 19:29:18 - root - INFO - Loaded plugin module: add
+2025-03-14 19:29:18 - root - INFO - Registered command: add
+2025-03-14 19:29:18 - root - INFO - Loaded plugin module: clear_all
+2025-03-14 19:29:18 - root - INFO - Registered command: clear_all
+2025-03-14 19:29:18 - root - INFO - Loaded plugin module: delete
+2025-03-14 19:29:18 - root - INFO - Registered command: delete
+2025-03-14 19:29:18 - root - INFO - Loaded plugin module: divide
+2025-03-14 19:29:18 - root - INFO - Registered command: divide
+2025-03-14 19:29:18 - root - INFO - Loaded plugin module: logging_utility
+2025-03-14 19:29:18 - root - INFO - Loaded plugin module: manage_history
+2025-03-14 19:29:18 - root - INFO - Loaded plugin module: menu
+2025-03-14 19:29:18 - root - INFO - Loaded plugin module: multiply
+2025-03-14 19:29:18 - root - INFO - Registered command: multiply
+2025-03-14 19:30:49 - root - INFO - Logging configured.
+2025-03-14 19:30:49 - root - ERROR - Errors need to be checked
+2025-03-14 19:30:49 - root - WARNING - Run tests again
+2025-03-14 19:30:49 - root - CRITICAL - Prioritize these tests
+2025-03-14 19:30:49 - root - INFO - Environment variables loaded.
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: add
+2025-03-14 19:30:49 - root - INFO - Registered command: add
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: clear_all
+2025-03-14 19:30:49 - root - INFO - Registered command: clear_all
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: delete
+2025-03-14 19:30:49 - root - INFO - Registered command: delete
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: divide
+2025-03-14 19:30:49 - root - INFO - Registered command: divide
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: logging_utility
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: manage_history
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: menu
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: multiply
+2025-03-14 19:30:49 - root - INFO - Registered command: multiply
+2025-03-14 19:30:49 - root - INFO - Logging configured.
+2025-03-14 19:30:49 - root - ERROR - Errors need to be checked
+2025-03-14 19:30:49 - root - WARNING - Run tests again
+2025-03-14 19:30:49 - root - CRITICAL - Prioritize these tests
+2025-03-14 19:30:49 - root - INFO - Environment variables loaded.
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: add
+2025-03-14 19:30:49 - root - INFO - Registered command: add
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: clear_all
+2025-03-14 19:30:49 - root - INFO - Registered command: clear_all
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: delete
+2025-03-14 19:30:49 - root - INFO - Registered command: delete
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: divide
+2025-03-14 19:30:49 - root - INFO - Registered command: divide
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: logging_utility
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: manage_history
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: menu
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: multiply
+2025-03-14 19:30:49 - root - INFO - Registered command: multiply
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: quit
+2025-03-14 19:30:49 - root - INFO - Registered command: quit
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: subtract
+2025-03-14 19:30:49 - root - INFO - Registered command: subtract
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: welcome
+2025-03-14 19:30:49 - root - INFO - Registered command: welcome
+2025-03-14 19:30:49 - root - INFO - Calculator CLI started. Type 'exit' to exit.
+2025-03-14 19:30:49 - calculator.plugins.quit - INFO - QuitCommand executed. Exiting the program.
+2025-03-14 19:30:49 - calculator.plugins.quit - INFO - QuitCommand executed. Exiting the program.
+2025-03-14 19:30:49 - root - INFO - Logging configured.
+2025-03-14 19:30:49 - root - ERROR - Errors need to be checked
+2025-03-14 19:30:49 - root - WARNING - Run tests again
+2025-03-14 19:30:49 - root - CRITICAL - Prioritize these tests
+2025-03-14 19:30:49 - root - INFO - Environment variables loaded.
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: add
+2025-03-14 19:30:49 - root - INFO - Registered command: add
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: clear_all
+2025-03-14 19:30:49 - root - INFO - Registered command: clear_all
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: delete
+2025-03-14 19:30:49 - root - INFO - Registered command: delete
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: divide
+2025-03-14 19:30:49 - root - INFO - Registered command: divide
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: logging_utility
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: manage_history
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: menu
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: multiply
+2025-03-14 19:30:49 - root - INFO - Registered command: multiply
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: quit
+2025-03-14 19:30:49 - root - INFO - Registered command: quit
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: subtract
+2025-03-14 19:30:49 - root - INFO - Registered command: subtract
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: welcome
+2025-03-14 19:30:49 - root - INFO - Registered command: welcome
+2025-03-14 19:30:49 - test.test_commands - INFO - Starting calculator with 'quit' command
+2025-03-14 19:30:49 - root - INFO - Calculator CLI started. Type 'exit' to exit.
+2025-03-14 19:30:49 - calculator.plugins.quit - INFO - QuitCommand executed. Exiting the program.
+2025-03-14 19:30:49 - calculator.plugins.quit - INFO - QuitCommand executed. Exiting the program.
+2025-03-14 19:30:49 - root - INFO - Logging configured.
+2025-03-14 19:30:49 - root - ERROR - Errors need to be checked
+2025-03-14 19:30:49 - root - WARNING - Run tests again
+2025-03-14 19:30:49 - root - CRITICAL - Prioritize these tests
+2025-03-14 19:30:49 - root - INFO - Environment variables loaded.
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: add
+2025-03-14 19:30:49 - root - INFO - Registered command: add
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: clear_all
+2025-03-14 19:30:49 - root - INFO - Registered command: clear_all
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: delete
+2025-03-14 19:30:49 - root - INFO - Registered command: delete
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: divide
+2025-03-14 19:30:49 - root - INFO - Registered command: divide
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: logging_utility
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: manage_history
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: menu
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: multiply
+2025-03-14 19:30:49 - root - INFO - Registered command: multiply
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: quit
+2025-03-14 19:30:49 - root - INFO - Registered command: quit
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: subtract
+2025-03-14 19:30:49 - root - INFO - Registered command: subtract
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: welcome
+2025-03-14 19:30:49 - root - INFO - Registered command: welcome
+2025-03-14 19:30:49 - test.test_commands - INFO - Starting calculator with an unknown command followed by 'quit'.
+2025-03-14 19:30:49 - root - INFO - Calculator CLI started. Type 'exit' to exit.
+2025-03-14 19:30:49 - calculator.plugins.quit - INFO - QuitCommand executed. Exiting the program.
+2025-03-14 19:30:49 - calculator.plugins.quit - INFO - QuitCommand executed. Exiting the program.
+2025-03-14 19:30:49 - root - INFO - Logging configured.
+2025-03-14 19:30:49 - root - ERROR - Errors need to be checked
+2025-03-14 19:30:49 - root - WARNING - Run tests again
+2025-03-14 19:30:49 - root - CRITICAL - Prioritize these tests
+2025-03-14 19:30:49 - root - INFO - Environment variables loaded.
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: add
+2025-03-14 19:30:49 - root - INFO - Registered command: add
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: clear_all
+2025-03-14 19:30:49 - root - INFO - Registered command: clear_all
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: delete
+2025-03-14 19:30:49 - root - INFO - Registered command: delete
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: divide
+2025-03-14 19:30:49 - root - INFO - Registered command: divide
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: logging_utility
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: manage_history
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: menu
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: multiply
+2025-03-14 19:30:49 - root - INFO - Registered command: multiply
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: quit
+2025-03-14 19:30:49 - root - INFO - Registered command: quit
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: subtract
+2025-03-14 19:30:49 - root - INFO - Registered command: subtract
+2025-03-14 19:30:49 - root - INFO - Loaded plugin module: welcome
+2025-03-14 19:30:49 - root - INFO - Registered command: welcome
+2025-03-14 19:30:49 - root - INFO - Calculator CLI started. Type 'exit' to exit.
+2025-03-14 19:30:49 - calculator.plugins.add - INFO - Executing addition command with arguments: ('2', '3')
+2025-03-14 19:30:49 - calculator.plugins.add - INFO - Executing addition command with arguments: ('2', '3')
+2025-03-14 19:30:49 - calculator.plugins.add - INFO - Arguments validated successfully: ('2', '3')
+2025-03-14 19:30:49 - calculator.plugins.add - INFO - Arguments validated successfully: ('2', '3')
+2025-03-14 19:30:49 - calculator.plugins.quit - INFO - QuitCommand executed. Exiting the program.
+2025-03-14 19:30:49 - calculator.plugins.quit - INFO - QuitCommand executed. Exiting the program.
+2025-03-14 19:44:03 - root - INFO - Logging configured.
+2025-03-14 19:44:03 - root - ERROR - Errors need to be checked
+2025-03-14 19:44:03 - root - WARNING - Run tests again
+2025-03-14 19:44:03 - root - CRITICAL - Prioritize these tests
+2025-03-14 19:44:03 - root - INFO - Environment variables loaded.
+2025-03-14 19:44:03 - root - INFO - Loaded plugin module: add
+2025-03-14 19:44:03 - root - INFO - Registered command: add
+2025-03-14 19:44:03 - root - INFO - Loaded plugin module: clear_all
+2025-03-14 19:44:03 - root - INFO - Registered command: clear_all
+2025-03-14 19:44:03 - root - INFO - Loaded plugin module: delete
+2025-03-14 19:44:03 - root - INFO - Registered command: delete
+2025-03-14 19:44:03 - root - INFO - Loaded plugin module: divide
+2025-03-14 19:44:03 - root - INFO - Registered command: divide
+2025-03-14 19:44:03 - root - INFO - Loaded plugin module: logging_utility
+2025-03-14 19:44:03 - root - INFO - Loaded plugin module: manage_history
+2025-03-14 19:44:03 - root - INFO - Loaded plugin module: menu
+2025-03-14 19:44:03 - root - INFO - Loaded plugin module: multiply
+2025-03-14 19:44:03 - root - INFO - Registered command: multiply
+2025-03-14 20:02:28 - root - INFO - Logging configured. Let the fun begin!
+2025-03-14 20:02:28 - root - INFO - Environment variables loaded. Ready to calculate!
+2025-03-14 20:02:28 - root - INFO - Loaded plugin module: add
+2025-03-14 20:02:28 - root - INFO - Registered command: add
+2025-03-14 20:02:28 - root - INFO - Loaded plugin module: clear_all
+2025-03-14 20:02:28 - root - INFO - Registered command: clear_all
+2025-03-14 20:02:28 - root - INFO - Loaded plugin module: delete
+2025-03-14 20:02:28 - root - INFO - Registered command: delete
+2025-03-14 20:02:28 - root - INFO - Loaded plugin module: divide
+2025-03-14 20:02:28 - root - INFO - Registered command: divide
+2025-03-14 20:02:28 - root - INFO - Loaded plugin module: logging_utility
+2025-03-14 20:02:28 - root - INFO - Loaded plugin module: manage_history
+2025-03-14 20:02:28 - root - INFO - Loaded plugin module: menu
+2025-03-14 20:02:28 - root - INFO - Loaded plugin module: multiply
+2025-03-14 20:02:28 - root - INFO - Registered command: multiply
+2025-03-14 23:10:57 - root - INFO - Logging configured.
+2025-03-14 23:10:57 - root - INFO - Environment variables loaded.
+2025-03-14 23:10:57 - calculator - INFO - Loading history from /home/sshriya/projects/Midterm/calculation_history.csv
+2025-03-14 23:10:57 - calculator - INFO - Loading history from /home/sshriya/projects/Midterm/calculation_history.csv
+2025-03-14 23:10:57 - root - INFO - Command 'add' registered.
+2025-03-14 23:10:57 - root - INFO - Plugins loaded successfully.
+2025-03-14 23:10:57 - test.test_calculator - INFO - Starting calculator with 'quit' command
+2025-03-14 23:10:57 - root - INFO - Application started
+2025-03-14 23:10:58 - root - INFO - Logging configured.
+2025-03-14 23:10:58 - root - INFO - Environment variables loaded.
+2025-03-14 23:10:58 - root - INFO - Command 'add' registered.
+2025-03-14 23:10:58 - root - INFO - Plugins loaded successfully.
+2025-03-14 23:10:58 - test.test_calculator - INFO - Starting calculator with an unknown command followed by 'quit'.
+2025-03-14 23:10:58 - root - INFO - Application started
+2025-03-14 23:10:58 - root - WARNING - Unknown command attempted: unknown_command
+2025-03-14 23:10:58 - root - INFO - Logging configured.
+2025-03-14 23:10:58 - root - INFO - Environment variables loaded.
+2025-03-14 23:10:58 - root - INFO - Command 'add' registered.
+2025-03-14 23:10:58 - root - INFO - Plugins loaded successfully.
+2025-03-14 23:10:58 - root - INFO - Application started
+2025-03-14 23:10:58 - root - INFO - Logging configured.
+2025-03-14 23:10:58 - root - INFO - Environment variables loaded.
+2025-03-14 23:10:58 - root - INFO - Command 'add' registered.
+2025-03-14 23:10:58 - root - INFO - Plugins loaded successfully.
+2025-03-14 23:10:58 - root - INFO - Application started
+2025-03-14 23:10:58 - root - WARNING - Unknown command attempted: unknown_command
+2025-03-14 23:10:58 - root - INFO - Logging configured.
+2025-03-14 23:10:58 - root - INFO - Environment variables loaded.
+2025-03-14 23:10:58 - root - INFO - Command 'add' registered.
+2025-03-14 23:10:58 - root - INFO - Plugins loaded successfully.
+2025-03-14 23:10:58 - root - INFO - Application started
+2025-03-14 23:10:58 - root - ERROR - Error executing command 'add': CalculationHistory.add_record() missing 1 required positional argument: 'result'
+2025-03-14 23:10:58 - calculator - INFO - Loading history from /home/sshriya/projects/Midterm/calculation_history.csv
+2025-03-14 23:10:58 - calculator - INFO - Loading history from /home/sshriya/projects/Midterm/calculation_history.csv
+2025-03-14 23:10:58 - calculator - INFO - No existing history found. Initializing empty history.
+2025-03-14 23:10:58 - calculator - INFO - No existing history found. Initializing empty history.
+2025-03-14 23:10:58 - calculator - INFO - Loading history from /home/sshriya/projects/Midterm/calculation_history.csv
+2025-03-14 23:10:58 - calculator - INFO - Loading history from /home/sshriya/projects/Midterm/calculation_history.csv
+2025-03-14 23:10:58 - calculator - INFO - No existing history found. Initializing empty history.
+2025-03-14 23:10:58 - calculator - INFO - No existing history found. Initializing empty history.
+2025-03-14 23:10:58 - calculator - INFO - Loading history from /home/sshriya/projects/Midterm/calculation_history.csv
+2025-03-14 23:10:58 - calculator - INFO - Loading history from /home/sshriya/projects/Midterm/calculation_history.csv
+2025-03-14 23:10:58 - calculator - ERROR - Failed to load history: Test error
+2025-03-14 23:10:58 - calculator - ERROR - Failed to load history: Test error
+2025-03-14 23:10:58 - calculator - INFO - Loading history from /home/sshriya/projects/Midterm/calculation_history.csv
+2025-03-14 23:10:58 - calculator - INFO - Loading history from /home/sshriya/projects/Midterm/calculation_history.csv
+2025-03-14 23:10:58 - calculator - INFO - History saved successfully.
+2025-03-14 23:10:58 - calculator - INFO - History saved successfully.
+2025-03-14 23:10:58 - calculator - INFO - Loading history from /home/sshriya/projects/Midterm/calculation_history.csv
+2025-03-14 23:10:58 - calculator - INFO - Loading history from /home/sshriya/projects/Midterm/calculation_history.csv
+2025-03-14 23:10:58 - calculator - ERROR - Failed to save history: Test error
+2025-03-14 23:10:58 - calculator - ERROR - Failed to save history: Test error
+2025-03-14 23:10:58 - calculator - INFO - Deleting record at index 0: Operation    add
+Input        1 2
+Result         3
+Name: 0, dtype: object
+2025-03-14 23:10:58 - calculator - INFO - Deleting record at index 0: Operation    add
+Input        1 2
+Result         3
+Name: 0, dtype: object
+2025-03-14 23:10:58 - calculator - INFO - Record 0 deleted. Updated history length: 1
+2025-03-14 23:10:58 - calculator - INFO - Record 0 deleted. Updated history length: 1
+2025-03-14 23:10:58 - calculator - INFO - Loading history from /home/sshriya/projects/Midterm/calculation_history.csv
+2025-03-14 23:10:58 - calculator - INFO - Loading history from /home/sshriya/projects/Midterm/calculation_history.csv
+2025-03-14 23:10:58 - calculator - WARNING - Invalid index: 99. Cannot delete record.
+2025-03-14 23:10:58 - calculator - WARNING - Invalid index: 99. Cannot delete record.
+2025-03-14 23:10:58 - calculator - INFO - Loading history from /home/sshriya/projects/Midterm/calculation_history.csv
+2025-03-14 23:10:58 - calculator - INFO - Loading history from /home/sshriya/projects/Midterm/calculation_history.csv
+2025-03-14 23:10:58 - calculator - INFO - Adding record: add 1 2 = 3
+2025-03-14 23:10:58 - calculator - INFO - Adding record: add 1 2 = 3
+2025-03-14 23:10:58 - calculator - INFO - Record added. Updated history length: 1
+2025-03-14 23:10:58 - calculator - INFO - Record added. Updated history length: 1
+2025-03-14 23:10:58 - calculator - INFO - Loading history from /home/sshriya/projects/Midterm/calculation_history.csv
+2025-03-14 23:10:58 - calculator - INFO - Loading history from /home/sshriya/projects/Midterm/calculation_history.csv
+2025-03-14 23:10:58 - calculator - INFO - Adding record: add 1 2 = 3
+2025-03-14 23:10:58 - calculator - INFO - Adding record: add 1 2 = 3
+2025-03-14 23:10:58 - calculator - INFO - History saved successfully.
+2025-03-14 23:10:58 - calculator - INFO - History saved successfully.
+2025-03-14 23:10:58 - calculator - INFO - Record added. Updated history length: 6
+2025-03-14 23:10:58 - calculator - INFO - Record added. Updated history length: 6
+2025-03-14 23:10:58 - calculator - INFO - Printing history:
+2025-03-14 23:10:58 - calculator - INFO - Printing history:
+2025-03-14 23:10:58 - calculator - INFO - Loading history from /home/sshriya/projects/Midterm/calculation_history.csv
+2025-03-14 23:10:58 - calculator - INFO - Loading history from /home/sshriya/projects/Midterm/calculation_history.csv
+2025-03-14 23:10:58 - calculator - INFO - No existing history found. Initializing empty history.
+2025-03-14 23:10:58 - calculator - INFO - No existing history found. Initializing empty history.
+2025-03-14 23:10:58 - calculator - INFO - Adding record: add 1 2 = 3
+2025-03-14 23:10:58 - calculator - INFO - Adding record: add 1 2 = 3
+2025-03-14 23:10:58 - calculator - INFO - History saved successfully.
+2025-03-14 23:10:58 - calculator - INFO - History saved successfully.
+2025-03-14 23:10:58 - calculator - INFO - Record added. Updated history length: 1
+2025-03-14 23:10:58 - calculator - INFO - Record added. Updated history length: 1
+2025-03-14 23:10:58 - calculator - INFO - Adding record: multiply 3 4 = 12
+2025-03-14 23:10:58 - calculator - INFO - Adding record: multiply 3 4 = 12
+2025-03-14 23:10:58 - calculator - INFO - History saved successfully.
+2025-03-14 23:10:58 - calculator - INFO - History saved successfully.
+2025-03-14 23:10:58 - calculator - INFO - Record added. Updated history length: 2
+2025-03-14 23:10:58 - calculator - INFO - Record added. Updated history length: 2
+2025-03-14 23:10:58 - calculator - INFO - Loading history from /tmp/tmpx9zmstqu/test_history.csv
+2025-03-14 23:10:58 - calculator - INFO - Loading history from /tmp/tmpx9zmstqu/test_history.csv

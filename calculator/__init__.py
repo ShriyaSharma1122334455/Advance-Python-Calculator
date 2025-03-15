@@ -4,13 +4,12 @@ Supports dynamically loading plugins that extend functionality.
 """
 
 import os
-import pkgutil
-import importlib
 import logging
 import logging.config
+import sys
 from dotenv import load_dotenv
-from calculator.commands import CommandHandler, Command
-from calculator.plugins.logging_utility import LoggingUtility  # Assuming a logging utility module exists
+from calculator.commands import CommandHandler
+from calculator.plugins.logging_utility import LoggingUtility
 
 # Initialize logging at the start of your application
 LoggingUtility.initialize_logging()
@@ -33,7 +32,7 @@ class Calculator:
         os.makedirs('logs', exist_ok=True)
         self.configure_logging()
         load_dotenv()
-        self.settings = self.load_environment_variables()
+        self.settings = dict(os.environ)  # Corrected here
         self.settings.setdefault('ENVIRONMENT', 'TESTING')
         self.command_handler = CommandHandler()
         self.load_plugins()
@@ -49,10 +48,6 @@ class Calculator:
         else:
             logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
         logging.info("Logging configured.")
-        logging.error("Errors need to be checked")
-        logging.debug("Need to fix")
-        logging.warning("Run tests again")
-        logging.critical("Prioritize these tests")
 
     def load_environment_variables(self):
         """
@@ -61,89 +56,63 @@ class Calculator:
         Returns:
             dict: A dictionary containing environment variables.
         """
-        settings = {key: value for key, value in os.environ.items()}
+        settings = dict(os.environ)  # Corrected here
         logging.info("Environment variables loaded.")
         return settings
-
-    def get_environment_variable(self, env_var: str = 'ENVIRONMENT'):
-        """
-        Retrieves the specified environment variable.
-
-        Args:
-            env_var (str): The name of the environment variable to fetch.
-
-        Returns:
-            str or None: The value of the environment variable, or None if not found.
-        """
-        return self.settings.get(env_var, None)
-
+        
     def load_plugins(self):
         """
-        Dynamically loads all plugins from the `calculator.plugins` package and registers commands.
-        Logs each plugin load and command registration.
+        Loads plugins from the plugins directory.
+        Register commands from plugins with the command handler.
         """
-        plugins_package = 'calculator.plugins'
-        for _, plugin_name, is_pkg in pkgutil.iter_modules([plugins_package.replace('.', '/')]):
-            if is_pkg:  # Ensure it's a package
-                try:
-                    plugin_module = importlib.import_module(f'{plugins_package}.{plugin_name}')
-                    logging.info(f"Loaded plugin module: {plugin_name}")
-                except ImportError as e:
-                    logging.error(f"Error loading plugin {plugin_name}: {e}")
-                    continue
-
-                for item_name in dir(plugin_module):
-                    item = getattr(plugin_module, item_name)
-                    if isinstance(item, type) and issubclass(item, Command):
-                        try:
-                            # Check if special initialization is required
-                            if hasattr(item, 'requires_command_handler') and item.requires_command_handler:
-                                instance = item(self.command_handler)
-                            else:
-                                instance = item()
-
-                            # Register the command
-                            command_name = getattr(instance, 'command_name', plugin_name)
-                            self.command_handler.register_command(command_name, instance)
-                            logging.info(f"Registered command: {command_name}")
-                        except TypeError:
-                            continue  # Skip if it's not a valid command class
-
+        try:
+            from calculator.plugins.add import AddCommand
+            from calculator.plugins.manage_history import CalculationHistory
+            
+            # Register commands from plugins
+            calculation_history = CalculationHistory()
+            self.command_handler.register_command("add", AddCommand(calculation_history))
+            
+            # Add more commands as needed
+            
+            logging.info("Plugins loaded successfully.")
+        except Exception as e:
+            logging.error("Error loading plugins: %s" % str(e))  # Corrected here
+            
     def start(self):
         """
-        Starts the CLI loop for the calculator, accepting user commands until 'exit' is entered.
-        Handles invalid inputs and logs errors.
+        Starts the calculator CLI, prompting for user input and executing commands.
+        Exits on 'quit' command with exit code 0.
         """
-        logging.info("Calculator CLI started. Type 'exit' to exit.")
-        print("Menu command provides a list of commands. Type command then number space number to execute command.")
-        print("Type 'exit' to exit.")
-
+        logging.info("Application started")
+        
+        # Print the welcome message
+        print("Calculator CLI - Type 'quit' to exit OR Menu to Continue")
+        
         while True:
-            try:
-                user_input = input(">>> ").strip()
-                if user_input.lower() == "exit":
-                    logging.info("Exiting calculator.")
-                    print("Goodbye!")
-                    break
-
-                parts = user_input.split(maxsplit=1)
-                command_name = parts[0] if parts else ''
-                args = parts[1].split() if len(parts) > 1 else []
-
-                if command_name:
-                    self.command_handler.execute_command(command_name, *args)
-                else:
-                    logging.warning("Invalid command entered.")
-                    print("Please enter a valid command.")
-
-            except KeyboardInterrupt:
-                logging.info("Calculator interrupted by user.")
-                print("\nExiting calculator. Goodbye!")
-                break
-            except Exception as e:
-                logging.error(f"Unexpected error: {e}")
-                print("An unexpected error occurred. Check logs for details.")
-
-if __name__ == "__main__":
-    calculator = Calculator()
-    calculator.start()
+            user_input = input("> ").strip()
+            
+            if user_input.lower() == 'quit':
+                print("Goodbye!")
+                sys.exit(0)
+            
+            # Split the input into command name and arguments
+            parts = user_input.split()
+            if not parts:
+                continue
+                
+            command_name = parts[0].lower()
+            args = parts[1:] if len(parts) > 1 else []
+            
+            # Check if the command exists and execute it
+            if command_name in self.command_handler.commands:
+                try:
+                    result = self.command_handler.execute_command(command_name, args)
+                    if result:
+                        print("Result: %s" % result)  # Corrected here
+                except Exception as e:
+                    logging.error("Error executing command %s: %s" % (command_name, str(e)))  # Corrected here
+                    print("Error: %s" % str(e))  # Corrected here
+            else:
+                print("No such command: %s" % command_name)  # Corrected here
+                logging.warning("Unknown command attempted: %s" % command_name)  # Corrected here

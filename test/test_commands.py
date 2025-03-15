@@ -1,110 +1,46 @@
-# """
-# Test plan for calculator commands with logging and environment variables.
-# """
+"""
+Test suite for the Calculator class with logging and environment variables.
+"""
+import os
+import logging
+import pytest
+from calculator import Calculator
 
-# import os
-# import logging
-# import pytest
-# from calculator.commands import Command
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
+# Environment variable for test mode
+os.environ["TEST_MODE"] = "true"
 
-# # Configure logging
-# logging.basicConfig(level=logging.INFO)
-# logger = logging.getLogger(__name__)
+def test_calculator_start_exit_command(monkeypatch):
+    """Test that the calculator exits correctly on 'quit' command."""
+    monkeypatch.setattr('builtins.input', lambda _: 'quit')
+    calculator = Calculator()
 
-# # Environment variable for test mode
-# os.environ["TEST_MODE"] = "true"
+    with pytest.raises(SystemExit):
+        calculator.start()
 
-# # Mocking command classes
-# class ArithmeticCommand(Command):
-#     """Base class for arithmetic commands.""" 
-    
-#     def __init__(self, name):
-#         self.command_name = name
+def test_calculator_start_unknown_command(monkeypatch):
+    """Test how the calculator handles an unknown command before exiting."""
+    inputs = iter(['unknown_command', 'quit'])
+    monkeypatch.setattr('builtins.input', lambda _: next(inputs))
+    calculator = Calculator()
 
-#     def execute(self, *args):
-#         if len(args) != 2:
-#             raise ValueError(f"{self.command_name} requires exactly two arguments.")
-#         try:
-#             num1, num2 = float(args[0]), float(args[1])
-#             if self.command_name == "divide" and num2 == 0:
-#                 raise ZeroDivisionError("Cannot divide by zero.")
-#             return self.operate(num1, num2)
-#         except ValueError as exc:
-#             raise ValueError("Invalid arguments. Both arguments must be numbers.") from exc
+    with pytest.raises(SystemExit):
+        calculator.start()
 
-#     def operate(self, num1, num2):
-#         """Perform the arithmetic operation between two numbers."""
-#         raise NotImplementedError("Operate method must be implemented in subclasses.")
+def test_calculator_add_command(capfd, monkeypatch):
+    """Test that the calculator correctly handles an 'add' command."""
+    inputs = iter(['add 2 3', 'quit'])
+    monkeypatch.setattr('builtins.input', lambda _: next(inputs))
+    calculator = Calculator()
 
+    with pytest.raises(SystemExit):
+        calculator.start()
 
-# class AddCommand(ArithmeticCommand):
-#     """Addition command."""
-    
-#     def __init__(self):
-#         super().__init__("add")
+    # Capture the output of the command
+    captured = capfd.readouterr()
 
-#     def operate(self, num1, num2):
-#         return num1 + num2
-
-
-# class SubtractCommand(ArithmeticCommand):
-#     """Subtraction command."""
-    
-#     def __init__(self):
-#         super().__init__("subtract")
-
-#     def operate(self, num1, num2):
-#         return num1 - num2
-
-
-# class MultiplyCommand(ArithmeticCommand):
-#     """Multiplication command."""
-    
-#     def __init__(self):
-#         super().__init__("multiply")
-
-#     def operate(self, num1, num2):
-#         return num1 * num2
-
-
-# class DivideCommand(ArithmeticCommand):
-#     """Division command."""
-    
-#     def __init__(self):
-#         super().__init__("divide")
-
-#     def operate(self, num1, num2):
-#         if num2 == 0:
-#             raise ZeroDivisionError("Cannot divide by zero.")
-#         return num1 / num2
-
-
-# @pytest.mark.parametrize("command_class, num1, num2, expected_result", [
-#     (AddCommand, "2.5", "3.5", 6.0),
-#     (SubtractCommand, "5", "3", 2.0),
-#     (MultiplyCommand, "4", "5", 20.0),
-#     (DivideCommand, "10", "2", 5.0),
-# ])
-# def test_arithmetic_commands(command_class, num1, num2, expected_result):
-#     """Test arithmetic commands."""
-#     command = command_class()
-#     result = command.execute(num1, num2)
-#     assert result == expected_result
-#     logger.info("%s command executed successfully.", command.command_name)
-
-
-# @pytest.mark.parametrize("command_class, num1, num2, expected_exception", [
-#     (AddCommand, "two", "three", ValueError),
-#     (SubtractCommand, "five", "three", ValueError),
-#     (MultiplyCommand, "four", "five", ValueError),
-#     (DivideCommand, "ten", "two", ValueError),
-#     (DivideCommand, "10", "0", ZeroDivisionError),
-# ])
-# def test_arithmetic_commands_invalid_input(command_class, num1, num2, expected_exception):
-#     """Test invalid input for arithmetic commands."""
-#     command = command_class()
-#     with pytest.raises(expected_exception):
-#         command.execute(num1, num2)
-#     logger.info("%s correctly handled invalid input.", {command.command_name} )
-    
+    # Check if the result is in the captured output
+    assert "Result: 5.0" in captured.out
