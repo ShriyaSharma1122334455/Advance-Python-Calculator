@@ -41,6 +41,6 @@ class MultiplyCommand(Command):
             return message
 
 # Export a function called "multiply" that plugins/__init__.py is trying to import
-def multiply(a, b):
+def multiply(num1, num2):
     """Simple multiply function that multiplies two numbers."""
-    return a * b
+    return num1 * num2

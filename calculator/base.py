@@ -13,5 +13,5 @@ class Command(ABC):
     def execute(self, *args):
         """
         Abstract method that should be implemented by subclasses to execute a specific command.
-        """
-        pass
+
+                """

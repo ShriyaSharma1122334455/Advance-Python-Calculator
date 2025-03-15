@@ -41,7 +41,7 @@ class CommandHandler:
                 result = self.commands[command_name].execute(*args)
                 LoggingUtility.info(f"Command '{command_name}' executed with args {args}.")
                 return result
-            except Exception as e:
+            except BlockingIOError as e:
                 LoggingUtility.error(f"Error executing command '{command_name}': {e}")
                 return f"Error: {e}"
         else:

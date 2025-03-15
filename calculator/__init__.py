@@ -32,7 +32,7 @@ class Calculator:
         os.makedirs('logs', exist_ok=True)
         self.configure_logging()
         load_dotenv()
-        self.settings = self.load_environment_variables()
+        self.settings = dict(os.environ)  # Corrected here
         self.settings.setdefault('ENVIRONMENT', 'TESTING')
         self.command_handler = CommandHandler()
         self.load_plugins()
@@ -56,7 +56,7 @@ class Calculator:
         Returns:
             dict: A dictionary containing environment variables.
         """
-        settings = {key: value for key, value in os.environ.items()}
+        settings = dict(os.environ)  # Corrected here
         logging.info("Environment variables loaded.")
         return settings
         
@@ -65,7 +65,6 @@ class Calculator:
         Loads plugins from the plugins directory.
         Register commands from plugins with the command handler.
         """
-        # Import plugins here, not at the module level
         try:
             from calculator.plugins.add import AddCommand
             from calculator.plugins.manage_history import CalculationHistory
@@ -78,7 +77,7 @@ class Calculator:
             
             logging.info("Plugins loaded successfully.")
         except Exception as e:
-            logging.error(f"Error loading plugins: {str(e)}")
+            logging.error("Error loading plugins: %s" % str(e))  # Corrected here
             
     def start(self):
         """
@@ -110,10 +109,10 @@ class Calculator:
                 try:
                     result = self.command_handler.execute_command(command_name, args)
                     if result:
-                        print(f"Result: {result}")
+                        print("Result: %s" % result)  # Corrected here
                 except Exception as e:
-                    logging.error(f"Error executing command {command_name}: {str(e)}")
-                    print(f"Error: {str(e)}")
+                    logging.error("Error executing command %s: %s" % (command_name, str(e)))  # Corrected here
+                    print("Error: %s" % str(e))  # Corrected here
             else:
-                print(f"No such command: {command_name}")
-                logging.warning(f"Unknown command attempted: {command_name}")
+                print("No such command: %s" % command_name)  # Corrected here
+                logging.warning("Unknown command attempted: %s" % command_name)  # Corrected here

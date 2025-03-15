@@ -12,7 +12,7 @@ class SubtractCommand(Command):
         """Initialize with optional history manager."""
         self.history_manager = history_manager
     
-    def execute(self, args):
+    def execute(self, *args):  # Use *args to accept variadic arguments, matching the base class
         """Execute the subtract command with the given arguments."""
         try:
             numbers = [float(arg) for arg in args]
@@ -40,6 +40,6 @@ class SubtractCommand(Command):
             return message
 
 # Export a function called "subtract" that plugins/__init__.py is trying to import
-def subtract(a, b):
-    """Simple subtract function that subtracts b from a."""
-    return a - b
+def subtract(num1, num2):
+    """Simple subtract function that subtracts num2 from num1."""
+    return num1 - num2
