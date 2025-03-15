@@ -1,8 +1,25 @@
-from app.plugins.logging_utility import LoggingUtility
-from app.plugins.history_manager import CalculationHistory
-from app.commands import Command
+"""
+DeleteCommand module.
+
+This module provides the DeleteCommand class, which is responsible for
+executing the delete operation on the history records. It uses the 
+CalculationHistory class to manage the history records.
+"""
+
+from calculator.plugins.logging_utility import LoggingUtility
+from calculator.plugins.manage_history import CalculationHistory
+from calculator.commands import Command
 
 class DeleteCommand(Command):
+    """
+    DeleteCommand class to delete a specific history record.
+
+    This class inherits from the Command class and implements the execute method
+    to delete a history record based on a provided index. The command ensures
+    that the correct index is provided and logs relevant information during the
+    process.
+    """
+
     def execute(self, *args):
         """Executes the command to delete a specific history record."""
         if len(args) != 1:
@@ -30,9 +47,9 @@ class DeleteCommand(Command):
         except KeyError as e:
             print(f"Error: {str(e)}")
             LoggingUtility.error(f"KeyError while deleting record - {str(e)}")
-        except Exception as e:
-            print(f"Error: An unexpected error occurred - {str(e)}")
-            LoggingUtility.error(f"An unexpected error occurred - {str(e)}")
-
+        except ValueError as e:
+            print(f"Error: {str(e)}")
+            LoggingUtility.error(f"ValueError while deleting record - {str(e)}")
+        
 # This allows the command to be imported directly from its package
 __all__ = ['DeleteCommand']

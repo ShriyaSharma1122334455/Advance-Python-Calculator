@@ -1,63 +1,52 @@
 """
-Module for the DivideCommand class.
-
-This module provides the DivideCommand class, which performs the division 
-of two numerical arguments while handling errors such as invalid input and 
-division by zero.
+Plugin that provides division functionality to the calculator.
 """
 
-import logging
-from decimal import Decimal, InvalidOperation, DivisionByZero
-from calculator.commands import Command
-from calculator.plugins.history_manager import HistoryManager  # Added HistoryManager
-
-
-# Configure logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+from calculator.base import Command
+from calculator.plugins.logging_utility import LoggingUtility
 
 class DivideCommand(Command):
-    """
-    DivideCommand class to perform the division of two numerical arguments.
-
-    This command class inherits from the Command class and implements the
-    execute method to perform division of two numbers passed as arguments.
-    """
-
-    def execute(self, *args):
-        """
-        Executes the division command with the given arguments.
-
-        Args:
-            *args: Two numerical arguments to be divided.
-
-        Raises:
-            InvalidOperation: If the arguments cannot be converted to Decimal.
-            DivisionByZero: If division by zero is attempted.
-        """
-        logger.info("Executing division command with arguments: %s", args)
-
+    """Command that performs division of numbers."""
+    
+    def __init__(self, history_manager=None):
+        """Initialize with optional history manager."""
+        self.history_manager = history_manager
+    
+    def execute(self, args):
+        """Execute the divide command with the given arguments."""
         try:
-            # Convert arguments to Decimal and perform division
-            a, b = map(Decimal, args)
-            if b == 0:
-                logger.error("Division by zero attempted with arguments: %s", args)
-                print("Error: Division by zero is not allowed.")
-                return
-            quotient = a / b
+            numbers = [float(arg) for arg in args]
+            if len(numbers) < 2:
+                message = "Error: Division requires at least two numbers"
+                print(message)
+                LoggingUtility.error("Divide command failed: not enough arguments")
+                return message
+                
+            result = numbers[0]
+            for number in numbers[1:]:
+                if number == 0:
+                    message = "Error: Division by zero"
+                    print(message)
+                    LoggingUtility.error("Divide command failed: division by zero")
+                    return message
+                result /= number
+            print(f"Result: {result}")
+            
+            # Record in history if available
+            if self.history_manager:
+                expression = f"{numbers[0]} / {' / '.join(str(n) for n in numbers[1:])} = {result}"
+                self.history_manager.add_record(expression, result)
+                
+            return result
+        except ValueError:
+            message = "Error: All arguments must be numbers"
+            print(message)
+            LoggingUtility.error("Divide command failed: arguments must be numbers")
+            return message
 
-            # Save the operation in history
-            HistoryManager.add_record("Division", str(a), str(b), str(quotient))
-
-
-            logger.info("Division result: %s / %s = %s", a, b, quotient)
-            print(f"The solution of division is {quotient}")
-        except InvalidOperation:
-            logger.error("Invalid input: Unable to convert arguments to Decimal. Arguments: %s", args)
-            print("Error: Invalid input. Please enter valid numbers.")
-        except DivisionByZero:
-            logger.error("Attempted division by zero with arguments: %s", args)
-            print("Error: Cannot divide by zero.")
-
-# Expose the DivideCommand class for external use
-__all__ = ["DivideCommand"]
+# Export a function called "divide" that plugins/__init__.py is trying to import
+def divide(a, b):
+    """Simple divide function that divides a by b."""
+    if b == 0:
+        raise ValueError("Cannot divide by zero")
+    return a / b

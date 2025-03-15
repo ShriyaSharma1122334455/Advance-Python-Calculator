@@ -1,57 +1,46 @@
-"""
-Module for the MultiplyCommand class.
 
-This module provides the MultiplyCommand class, which performs the multiplication 
-of two numerical arguments while handling invalid input errors.
+"""
+Plugin that provides multiplication functionality to the calculator.
 """
 
-import logging
-from decimal import Decimal, InvalidOperation
-from calculator.commands import Command
-from calculator.plugins.history_manager import HistoryManager  # Added HistoryManager
-
-
-# Configure logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+from calculator.base import Command
+from calculator.plugins.logging_utility import LoggingUtility
 
 class MultiplyCommand(Command):
-    """
-    MultiplyCommand class to perform multiplication of two numbers.
-
-    This command class inherits from the Command class and implements the
-    execute method to multiply two decimal numbers and display the result.
-    """
-
-    def execute(self, *args):
-        """
-        Executes the multiplication command.
-
-        This method takes two arguments, attempts to convert them to decimals,
-        and performs the multiplication. If the input is invalid, it handles the
-        error and displays an appropriate message.
-
-        Args:
-            *args: Two numerical arguments to be multiplied.
-
-        Prints:
-            The product of the two numbers if valid inputs are provided.
-            Error message if invalid inputs are encountered.
-        """
-        logger.info("Executing MultiplyCommand with arguments: %s", args)
-        
+    """Command that performs multiplication of numbers."""
+    
+    def __init__(self, history_manager=None):
+        """Initialize with optional history manager."""
+        self.history_manager = history_manager
+    
+    def execute(self, args):
+        """Execute the multiply command with the given arguments."""
         try:
-            a, b = map(Decimal, args)
-            product = a * b
+            numbers = [float(arg) for arg in args]
+            if not numbers:
+                message = "Error: No numbers provided for multiplication"
+                print(message)
+                LoggingUtility.error("Multiply command failed: no arguments")
+                return message
+                
+            result = 1
+            for number in numbers:
+                result *= number
+            print(f"Result: {result}")
+            
+            # Record in history if available
+            if self.history_manager:
+                expression = f"{' * '.join(str(n) for n in numbers)} = {result}"
+                self.history_manager.add_record(expression, result)
+                
+            return result
+        except ValueError:
+            message = "Error: All arguments must be numbers"
+            print(message)
+            LoggingUtility.error("Multiply command failed: arguments must be numbers")
+            return message
 
-            # Save the operation in history
-            HistoryManager.add_record("multiplication", str(a), str(b), str(product))
-
-            print(f"The solution of multiplication is {product}")
-            logger.info("Multiplication successful: %s * %s = %s", a, b, product)
-        except InvalidOperation:
-            print("Error: Invalid input. Please enter valid numbers.")
-            logger.error("Error: Invalid input. Unable to convert arguments to Decimal: %s", args)
-
-# Expose the MultiplyCommand class for external use
-__all__ = ["MultiplyCommand"]
+# Export a function called "multiply" that plugins/__init__.py is trying to import
+def multiply(a, b):
+    """Simple multiply function that multiplies two numbers."""
+    return a * b

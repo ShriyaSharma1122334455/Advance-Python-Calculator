@@ -35,7 +35,7 @@ class MenuCommand(Command):
         self.command_handler = command_handler
         logger.info("MenuCommand initialized with command handler: %s", command_handler)
 
-    def execute(self):
+    def execute(self, *args):
         """
         Displays all available commands dynamically.
 

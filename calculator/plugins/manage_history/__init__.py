@@ -54,18 +54,20 @@ class CalculationHistory:
         if self.history.empty or index < 0 or index >= len(self.history):
             logger.warning(f"Invalid index: {index}. Cannot delete record.")
             return False
+        logger.info(f"Deleting record at index {index}: {self.history.iloc[index]}")
         self.history = self.history.drop(index).reset_index(drop=True)
         self.save_history()
-        logger.info(f"Record {index} deleted.")
+        logger.info(f"Record {index} deleted. Updated history length: {len(self.history)}")
         return True
 
     def add_record(self, operation, input_str, result):
         """Adds a new calculation record to history."""
+        logger.info(f"Adding record: {operation} {input_str} = {result}")
         new_record = pd.DataFrame({'Operation': [operation], 'Input': [input_str], 'Result': [result]})
         self.history = pd.concat([self.history, new_record], ignore_index=True)
         self.save_history()
-        logger.info(f"Record added: {operation} {input_str} = {result}")
-
+        logger.info(f"Record added. Updated history length: {len(self.history)}")
+    
     def print_history(self):
         """Prints the calculation history."""
         logger.info("Printing history:")
